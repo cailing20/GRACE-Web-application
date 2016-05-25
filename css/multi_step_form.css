@@ -1,0 +1,215 @@
+.hide {display:none;}
+
+#MSFprogressbar{
+	position:absolute;
+	left:0;
+	font-family:"Segoe UI",Arial,sans-serif !important;
+	float:left;
+	font-size:1.3em;
+	font-weight: 500;
+	width: 300px;
+}
+#MSFprogressbar li{
+	display:block;
+	color:rgba(229, 42, 111, 0.2);
+}
+#MSFprogressbar span{
+	color: #5F0F4E;
+	font-size:0.8em;
+}
+.MSFactive{
+	color:rgba(229, 42, 111, 1) !important;
+}
+.analysis-content{
+	position:relative;
+	margin-left:310px;
+}
+fieldset.MSF{
+	margin:auto;
+	display:none;
+	border-radius:5px;
+	width: 550px;
+	height: 550px;
+	padding: 1em;
+	font-family:"Segoe UI",Arial,sans-serif !important;
+	border-color:rgba(229, 42, 111,0.2);
+	border-width:2px;
+}
+legend {
+  padding: 0.2em 0.5em;
+  font-size:1.5em;
+  text-align:right;
+  color:#E52A6F;
+}
+#first{
+	display:block;
+}
+.MSF select{
+	padding: 5px;
+	width:100%;
+	margin:10px 0;
+	height:40px;
+	padding:5px;
+	border: 1px solid #67AECA;
+	border-radius: 2px;
+}
+
+
+.MSF input[type=submit],
+.MSF input[type=button]{
+	min-width: 120px;
+	margin:15px 20px;
+	padding: 5px;
+	height: 40px;
+	background-color: #67AECA;
+	border: solid #94CDE2 1px;
+	border-radius: 4px;
+	color: white;
+}
+.MSF input[type=submit]:hover,active,
+.MSF input[type=button]:hover,active{
+	background-color: #4390AD;
+}
+
+.next_btn,.submit_btn{
+	float: right;
+}
+.pre_btn{
+	float: left;
+}
+#reset{
+	display: none;
+	width: 120px;
+	margin:15px 25px;
+	padding: 5px;
+	height: 40px;
+	background-color: #67AECA;
+	border: solid #94CDE2 1px;
+	border-radius: 4px;
+	color: white;
+}
+#reset:hover,active{
+	background-color: #4390AD;
+}
+
+table {
+    border-collapse: collapse;
+}
+.result{width:900px;margin:auto;}
+#CoexpressionAnalysisResult{float:left;}
+#geneTable th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+#geneTable tr:nth-child(even){background-color: #F2E9EC}
+
+#geneTable th {
+    background-color: #E52A6F;
+    color: white;
+}
+#geneTable table, th, td {
+    border: 1px solid #eee !important;
+    color: #5F0F4E;
+    font-family:"Segoe UI",Arial,sans-serif !important;
+}
+/* #geneTable table {table-layout: fixed;}
+#geneTable col:nth-child(1){width:50px;}
+#geneTable col:nth-child(2){width:100px;}
+#geneTable col:nth-child(3){width:50px;}
+#geneTable col:nth-child(4){width:100px;}
+#geneTable col:nth-child(5){width:80px;} */
+
+#setTable th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+#setTable tr:nth-child(even){background-color: #F2E9EC}
+
+#setTable th {
+    background-color: #5F0F4E;
+    color: white;
+}
+#setTable table, th, td {
+    border: 1px solid #eee !important;
+    color: #5F0F4E;
+    font-family:"Segoe UI",Arial,sans-serif !important;
+    overflow-x:auto
+}
+td i {
+    text-align:center;
+    display: inline-block;
+}
+
+.inSet i {
+    color:#E52A6F;
+}
+
+#scatterPlot{
+	min-width: 450px; 
+	height: 400px; 
+	max-width: 500px; 
+	margin:50px auto
+}
+#CoexpressionAnalysisResult{
+	height: 350px; 
+	width: 450px; 
+	overflow:hidden;
+	margin:10px;
+}
+#CoexpressionAnalysisResult:hover { 
+	overflow-y:scroll; 
+}
+#CoexpFollowUp{
+	float:left; 
+	padding:10px; 
+	height:350px;
+	width:408px;
+	margin:10px;
+}
+#EnrichmentOutput{
+	height:160px;
+	float:left;
+	width: 878px;
+	overflow:hidden;
+    display: block;
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+#EnrichmentOutput:hover { 
+	overflow-y:scroll; 
+}
+.FollowUpSections{
+	display:block;
+}
+.FollowUpInput{
+	float:left;
+	display:block
+}
+.FollowUpButton{
+	text-align:center;
+}
+@media only screen and (max-width: 1220px) {
+#CoexpressionAnalysisResult{
+	height: 150px; 
+	width: 800px; 
+}
+#CoexpFollowUp{
+	width:800px;
+	height: 250px;
+}
+#EnrichmentOutput{
+	width: 800px;
+}
+.FollowUpSections{
+	width:700px;margin-left:50px;
+}
+.FollowUpInput{
+	display:inline-box;
+}
+.FollowUpButton{
+	float:right;
+	display:inline-box;
+}
+}

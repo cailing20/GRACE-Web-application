@@ -1,0 +1,66 @@
+/* adapted from http://github.com/juven14/Accordion */
+@CHARSET "UTF-8";
+
+#ACbody {
+    float:left;
+    margin:10px;
+}
+h1.ACh1{
+	color: #5F0F4E;
+    font-family:"Segoe UI",Arial,sans-serif !important;
+    margin-left: 10px;	
+}
+.accordion {
+    margin: 0;
+    padding:10px;
+    border-top:#f0f0f0 1px solid;
+    background: #E0CFD5;
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration:none;
+    text-transform:uppercase;
+    color: #5F0F4E;
+    font-size:1.3em;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+.accordion:hover{
+	cursor: pointer;
+	background: #C1A3AD;
+}
+.accordion-open,.accordion-open:hover {
+    background:#5F0F4E;
+    color: #fff;
+}
+.accordion-open span {
+    display:block;
+    float:right;
+    padding:10px;
+}
+.accordion-open span {
+    background:url(./fa-minus_16_0_ffffff_none.png) center center no-repeat;
+}
+.accordion-close span {
+    display:block;
+    float:right;
+    background:url(./fa-plus_16_0_5f0f4e_none.png) center center no-repeat;
+    padding:10px;
+}
+div.ACcontainer {
+    padding:0;
+    margin:0;
+}
+div.ACcontent {
+    background: #F2E9EC;
+    color: #5F0F4E;
+    margin: 0;
+    padding:10px;
+    font-size:1.1em;
+    line-height:1.5em;
+    font-family:"Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+}
+div.ACcontent p {
+    padding:0;
+    margin:0;
+    padding:3px;
+}
