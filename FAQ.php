@@ -166,15 +166,15 @@ $(window).on('load resize', function(){
 		    <div class="ACcontent">
 		        <p>
 					mRNA expression data and GISTIC copy number data for over 20 TCGA disease cohorts were downloaded from 
-					<a href='http://firebrowse.org/'>FIREHOSE</a>. 
+					<a href='http://firebrowse.org/' target="_blank">FIREHOSE</a>. 
 		        	"illuminahiseq_rnaseqv2-RSEM_genes_normalized" was downloaded as the mRNA data and "all_data_by_genes" was downloaded as copy number data.
-		        	In the scatter plot analysis, data was retrieved from <a href="http://firebrowse.org/api-docs/">FIREBROWSE Web API</a>.
+		        	In the scatter plot analysis, data was retrieved from <a href="http://firebrowse.org/api-docs/" target="_blank">FIREBROWSE Web API</a>.
 		        </p>
 		        <p>
 		        	Gene set libraries in the enrichment anlaysis are downloaded from 
-		        	<a href="http://software.broadinstitute.org/gsea/downloads.jsp">Molecular Signatures Database (MSigDB)</a>,
-		        	<a href="http://amp.pharm.mssm.edu/Enrichr/#stats">Enrichr</a>, and
-		        	<a href="http://www.genenames.org/cgi-bin/genefamilies/">HGNC</a>.
+		        	<a href="http://software.broadinstitute.org/gsea/downloads.jsp" target="_blank">Molecular Signatures Database (MSigDB)</a>,
+		        	<a href="http://amp.pharm.mssm.edu/Enrichr/#stats" target="_blank">Enrichr</a>, and
+		        	<a href="http://www.genenames.org/cgi-bin/genefamilies/" target="_blank">HGNC</a>.
 		        </p>
 		    </div>
 		</div>
