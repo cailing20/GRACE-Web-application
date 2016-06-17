@@ -1,7 +1,7 @@
 
 <div class="top-container">
 	<div class='top-logo-container'>
-		<a href='./Index.php'>
+		<a href='./index.php'>
 		<img class="logo" src="./images/GraceLogo.png" alt="Grace Logo">
 		</a>
 	</div>
@@ -9,7 +9,7 @@
 </div>
 <div id='top-nav-container'>
 	<ol class='top-nav card'>
-		<li><a href='./Index.php' id='top-nav-home' class='fa fa-home' style='font-size: 2rem;' title='Home'></a></li>
+		<li><a href='./index.php' id='top-nav-home' class='fa fa-home' style='font-size: 2rem;' title='Home'></a></li>
 		<li><a href='./Analysis.php' id='top-nav-analysis' title='Analysis of coordinately expressed genes'>Analysis</a></li>
 		<li><a href='./FAQ.php' id='top-nav-faq' title='Frequently Asked Questions'>FAQ</a></li>
 		<li><a href='./Resources.php' id='top-nav-resources' title='Useful websites'>Resources</a></li>
