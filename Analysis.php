@@ -695,7 +695,7 @@ function generateScatterPlot(){
 		            enabled: false
 		        },
 		        exporting: { 
-			        enabled: false 
+			        enabled: true 
 			    },
 		        plotOptions: {
 		            scatter: {
