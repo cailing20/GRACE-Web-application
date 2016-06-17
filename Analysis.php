@@ -526,7 +526,7 @@ function setCohortOptions(){
 		$(".CA-only").hide();
 		$(".not-CA-only").show();
 	/* Script here to exclude LAML and MESO for the scatter plot analysis*/
-		cohortOptions = Array(21).fill(1);
+		cohortOptions = Array.apply(null, Array(21)).map(Number.prototype.valueOf,1);;
 		cohortOptions[10] = 0;
 		cohortOptions[15] = 0;
 		setOptions(cohortOptions);	
@@ -798,6 +798,7 @@ function refreshCoexpressionAnalysisResult(){
 //The following enrichment analysis is based on hypergeometric test
 function enrichmentAnalysis(){
 	var $output = $('#EnrichmentOutput');
+	$output.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="display:block;margin:auto;padding-top:50px;width:50px;">');
 	grace.length = $('#followUpForm').find('input[name="quantity"]').val();
 	grace.order = $('input[name=corTrend]:checked', '#followUpForm').val();
 	grace.setDB = $('#setDB').val();
