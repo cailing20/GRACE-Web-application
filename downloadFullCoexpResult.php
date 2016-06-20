@@ -13,7 +13,7 @@ $setDB = '1'; */
 
 $methods = ["tumor_RNA","tumor_RES","normal"];
 $methodNames = ["TumorStandard","TumorGRACE","NormalStandard"];
-$fileName = "file:///Z:/TCGA_NeighborProject/Website/Database/JSON/".$methods[$method]."/".$cohort."/";
+$fileName = "/mnt/database/JSON/".$methods[$method]."/".$cohort."/";
 $fileName.= strval(200*floor($id/200)+1)."-".strval(200*ceil($id/200))."/".$id.".json";
 $json = file_get_contents($fileName);
 $dat = json_decode($json,true);
@@ -22,7 +22,7 @@ $coefs = $dat['coef'];
 
 require_once('./connection.php');
 $db = Db::getInstance();
-$json = file_get_contents('file:///Z:/TCGA_NeighborProject/Website/Database/JSON/tumor_RES/BRCA/13001-13200/13092.json');
+$json = file_get_contents('/mnt/database/JSON/tumor_RES/BRCA/13001-13200/13092.json');
 try {
 	$sql = "SELECT * FROM gene_symbols WHERE `id` IN (".implode(',', $ids).") ORDER BY `id`" ;
 	$stmt = $db->query($sql);
