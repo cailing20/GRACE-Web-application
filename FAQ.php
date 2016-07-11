@@ -58,7 +58,7 @@ $(window).on('load resize', function(){
 	<h1 class="ACh1">Frequently Asked Questions</h1>
 	<div id="ACbody">
 		<!-- panel -->
-		<div class="accordion" id="section1">How to run a RNA Copy Number Scatter Plot analysis?<span></span></div>
+		<div class="accordion" id="section1">How to run a RNA and DNA Copy Number Scatter Plot analysis?<span></span></div>
 		<div class="ACcontainer">
 		    <div class="ACcontent">
 				<img class="faq" src="./images/FAQ/step1_pickPathway.png" alt="click dropdown menu to select from KEGG pathway gene sets">
@@ -83,14 +83,14 @@ $(window).on('load resize', function(){
 				In case the user did not enter a valid gene name, or no analysis is available for the gene entered by the user, a note will be given under the search field.
 				If the gene name is valid, the user can progress to the next step and the gene name entered will be shown in the progress bar on the left.</p><br><br>
 				<img class="faq" src="./images/FAQ/step9_sp_chooseAnalysis.png" alt="choose scatter plot analysis">
-				<p>"RNA Copy Number Scatter Plot" can be chosen from the analysis option.  Options may be disabled when data is not available for anlaysis.</p><br><br>
+				<p>"RNA and DNA Copy Number Scatter Plot" can be chosen from the analysis option.  Options may be disabled when data is not available for anlaysis.</p><br><br>
 				<img class="faq" src="./images/FAQ/step10_chooseCohort.png" alt="choose a cohort">
 				<p>The user can choose a TCGA cohort. Options may be disabled when data is not available for anlaysis.</p><br><br>
 				<img class="faq" src="./images/FAQ/step11_chooseCohort.png" alt="submit cohort option">
-				<p>This is the final step for RNA copy number scatter plot analysis. The user may click submit to view the result.
+				<p>This is the final step for RNA and DNA copy number scatter plot analysis. The user may click submit to view the result.
 				If the user want to modify the previous steps, simply click previous to go back.</p><br><br>
 				<img class="faq" src="./images/FAQ/step12_sp_viewResult.png" alt="view scatter plot result">
-				<p>A scatter plot for RNA and copy number will be generated for the chosen gene and cohort. 
+				<p>A scatter plot for RNA and DNA copy number will be generated for the chosen gene and cohort. 
 				To start another analysis, click "Reset" in the progress bar on the left.</p><br><br>
 		    </div>
 		</div>
@@ -128,8 +128,8 @@ $(window).on('load resize', function(){
 				<img class="faq" src="./images/FAQ/step11_chooseMethod.png" alt="choose a sample method option">
 				<p>The user may choose to use data from tumor samples or normal samples to run the coexpression analaysis. 
 				For tumor samples, the user can choose between the standard method and GRACE. The number of samples are also given in the option name. 
-				Note that GRACE method generally have fewer samples than the standard method because some samples were excluded due to the unavailability of copy number data. 
-				There might also be less genes returned by the GRACE method since genes with saturated copy number are also excluded from the analysis.</p><br><br>
+				Note that GRACE method generally have fewer samples than the standard method because some samples were excluded due to the unavailability of DNA copy number data. 
+				There might also be less genes returned by the GRACE method since genes with saturated DNA copy number are also excluded from the analysis.</p><br><br>
 				<img class="faq" src="./images/FAQ/step12_submit.png" alt="submit">
 				<p>Click "Submit" to retrieve coexpressing genes.</p><br><br>
 				<img class="faq" src="./images/FAQ/step13_pickSetDB.png" alt="view coexpression result">
@@ -165,9 +165,9 @@ $(window).on('load resize', function(){
 		<div class="ACcontainer">
 		    <div class="ACcontent">
 		        <p>
-					mRNA expression data and GISTIC copy number data for over 20 TCGA disease cohorts were downloaded from 
+					mRNA expression data and GISTIC DNA copy number data for over 20 TCGA disease cohorts were downloaded from 
 					<a href='http://firebrowse.org/' target="_blank">FIREHOSE</a>. 
-		        	"illuminahiseq_rnaseqv2-RSEM_genes_normalized" was downloaded as the mRNA data and "all_data_by_genes" was downloaded as copy number data.
+		        	"illuminahiseq_rnaseqv2-RSEM_genes_normalized" was downloaded as the mRNA data and "all_data_by_genes" was downloaded as DNA copy number data.
 		        	In the scatter plot analysis, data was retrieved from <a href="http://firebrowse.org/api-docs/" target="_blank">FIREBROWSE Web API</a>.
 		        </p>
 		        <p>
@@ -185,8 +185,8 @@ $(window).on('load resize', function(){
 		    <div class="ACcontent">
 		        <p>
 					In our co-expression analysis, we remove genes that are under-expressed in too many samples (when over 90% of the samples have 0 RSEM values).
-					In addition, when GRACE is applied, we also filterd out genes with saturated copy number values so that both RNA and copy number of the same gene can be in linear range.
-					For exmple, ERBB2, a frequently amplified oncogene have relative copy number of 3.657 in 97 of the 1080 tumor samples and is filtered out.
+					In addition, when GRACE is applied, we also filterd out genes with saturated DNA copy number values so that both RNA and DNA copy number of the same gene can be in linear range.
+					For exmple, ERBB2, a frequently amplified oncogene have relative DNA copy number of 3.657 in 97 of the 1080 tumor samples and is filtered out.
 		        </p>
 		    </div>
 		</div>
@@ -197,12 +197,12 @@ $(window).on('load resize', function(){
 		    <div class="ACcontent">
 		        <p>
 					There are several reasons. 
-					In the case of co-expression analysis, some genes were filtered out because of under-expresson or saturated copy number (see answer to the previous question). 
-					For cohorts with no copy number data available, co-expression analysis with GRACE cannot be performed. 
+					In the case of co-expression analysis, some genes were filtered out because of under-expresson or saturated DNA copy number (see answer to the previous question). 
+					For cohorts with no DNA copy number data available, co-expression analysis with GRACE cannot be performed. 
 					For cohorts with no normal sample data available, co-expression analysis for normal samples cannot be performed.				
 		        </p>
 		        <p>
-		        	In the case of RNA Copy Number Scatter Plot generation, it is not available for cohorts without copy number data.
+		        	In the case of RNA and DNA Copy Number Scatter Plot generation, it is not available for cohorts without DNA copy number data.
 		        </p>
 		    </div>
 		</div>
