@@ -40,11 +40,12 @@ try {
 	$sql.= ") ORDER BY FIELD(id, ".implode(',', $ids).")";
 	$stmt = $db->query($sql);
 	$coexp_symbols = $stmt->fetchAll(PDO::FETCH_ASSOC);
-	$sql = "SELECT `locus`,`description` FROM gene_info WHERE `gene_id` IN (".implode(',', $ids);
+	$sql = "SELECT `locus`,`description`,`entrez_id` FROM gene_info WHERE `gene_id` IN (".implode(',', $ids);
 	$sql.= ") ORDER BY FIELD(gene_id, ".implode(',', $ids).")";	$stmt = $db->query($sql);
 	while($info = $stmt->fetch(PDO::FETCH_ASSOC)){
 		$locus[] = $info['locus'];
 		$description[] = $info['description'];
+		$entrezID[] = $info['entrez_id'];
 	}
 	if($setID>=0){
 		$setDB_name = $setDBs[$setDB];
@@ -67,11 +68,13 @@ if($order=='asc'){
 	$coexp_data['symbols']=$coexp_symbols;
 	$coexp_data['locus']=$locus;
 	$coexp_data['description']=$description;
+	$coexp_data['entrezID']=$entrezID;
 }else{
 	$coexp_data['ids'] = array_reverse($ids);
 	$coexp_data['symbols']=array_reverse($coexp_symbols);
 	$coexp_data['locus']=array_reverse($locus);
 	$coexp_data['description']=array_reverse($description);
+	$coexp_data['entrezID']=array_reverse($entrezID);
 }
 
 if($setID>=0){

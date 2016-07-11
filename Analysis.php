@@ -744,11 +744,13 @@ function generateCoexpressionAnalysisResult(){
 		var symbols = coexpTable['symbols'];
 		var locus = coexpTable['locus'];
 		var description = coexpTable['description'];
+		var entrezID = coexpTable['entrezID'];
 		var coefs = coexpTable['coefs'];
 		if(grace.setID>=0){
 			var inSetIds = coexpTable['inSetIds'];
 		}
 		var tr=[];
+
 		tr.push('<table id="geneTable">');
 		tr.push('<tr>');
 		tr.push('<th>Rank</th>');
@@ -762,7 +764,7 @@ function generateCoexpressionAnalysisResult(){
 		for (var i = 0; i < description.length; i++) {
 		    tr.push('<tr>');
 		    tr.push("<td>" + (i+1) + "</td>");
-		    tr.push('<td title="'+description[i]+'">' + symbols[i].symbol + '</td>');
+		    tr.push('<td><a href="http://biogps.org/#goto=genereport&id='+entrezID[i]+'" title="'+description[i]+'" target="_blank">' + symbols[i].symbol + '</a></td>');
 		    tr.push("<td>" + coefs[i] + "</td>");
 		    tr.push("<td>" + locus[i] + "</td>");
 		    if(grace.setID>=0){
