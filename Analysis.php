@@ -97,7 +97,7 @@
 			<fieldset class="MSF card">
 				<legend>Step 2: Choose an Analysis</legend>
 					<select id='choose-analysis'>
-						<option value="RNA Copy Number Scatter Plot">RNA Copy Number Scatter Plot</option>	
+						<option value="RNA and DNA Copy Number Scatter Plot">RNA and DNA Copy Number Scatter Plot</option>	
 						<option value="Co-expression Analysis">Co-expression Analysis</option>
 					</select>
 				<input class="pre_btn" name="previous" type="button" value="Previous" onclick="clearGene()">
