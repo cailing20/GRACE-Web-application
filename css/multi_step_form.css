@@ -1,5 +1,7 @@
 .hide {display:none;}
 
+.stepReset{opacity:0.5;font-size:1em;color:#E52A6F;margin-left:-25px;}
+.stepReset:hover,active{opacity:1;cursor: pointer;}
 #MSFprogressbar{
 	position:absolute;
 	left:0;
