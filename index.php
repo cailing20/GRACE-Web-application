@@ -39,7 +39,7 @@
 	<div id="Intro" class='homeContent' style="display:block;">
 		<h3><b>Introduction</b></h3>
 		<p>Co-expression analyses are useful tools for elucidating gene function.
-		 Genes coordinatedly expressed with a gene of interest are often functionally linked in the same biological pathway.
+		 Genes coordinately expressed with a gene of interest are often functionally linked in the same biological pathway.
 		 Many cancer online analysis platforms provide co-expression analysis based on cancer transcriptomic data.</p>
 		<p>However, in cancer, a large fraction of the genome is affected by somatic copy number alterations (SCNA)
 		<sup class='ref'><a href="http://www.ncbi.nlm.nih.gov/pubmed/?term=24071852" target="_blank"
