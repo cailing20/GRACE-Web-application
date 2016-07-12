@@ -51,7 +51,7 @@
 		   As a consequence, standard co-expression analyses using cancer transcriptomic data often identify physically neighboring genes as co-expressing genes based on their positive correlation with the gene of interest. 
 		   
 		<p><b>Genomic Regression Analysis of Coordinated Expression (GRACE)</b> is a method developed to remove effect of copy number alteration from co-expression analysis so that the resulting genes are mostly based on biological regulation. 
-		   This web portal allows users to perform co-expression analysis with tumor or normal samples from various cancer types based on TCGA studies. 
+		   This database allows users to perform co-expression analysis with tumor or normal samples from various cancer types based on TCGA studies. 
 		   The users may apply either GRACE or standard, non-SCNA adjusted method to perform analysis with tumor sample data. 
 		   Standard method may also be applied for normal tissue samples, which lack frequent SCNAs.  
 		   Functional enrichment analysis is also provided for interpretation of co-expressing genes. </p>
