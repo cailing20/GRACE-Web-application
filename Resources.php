@@ -73,7 +73,7 @@ $(window).on('load resize', function(){
 					<img src="./images/Resources/Tumorscape.PNG" alt="TumorScape">
 				</a>
 				<p>
-					TumorScape is designed to facilitate the use and understanding of high resolution copy number data amassed from multiple cancer types. The functionalities including gene-level analysis, analysis by cancer type, download and visualization of cancer DNA copy number data are supported.
+					TumorScape is designed to facilitate the use and understanding of high-resolution copy number data amassed from multiple cancer types. The functionalities, including gene-level analysis, analysis by cancer type, download and visualization of cancer DNA copy number data, are supported.
 					<sup class='ref'><a href="http://www.broadinstitute.org/tumorscape/pages/portalHome.jsf" target="_blank"
 	   									title="TumorScape Introduction" >ref</a></sup>
 	   				<br><br>
@@ -93,7 +93,7 @@ $(window).on('load resize', function(){
 					<img src="./images/Resources/CellMiner.GIF" alt="CellMiner">
 				</a>
 				<p>
-					CellMiner™ is a web application that facilitates systems biology through the retrieval and integration of the molecular and pharmacological data sets for the NCI-60 cell lines. The NCI-60, a panel of 60 diverse human cancer cell lines used by the Developmental Therapeutics Program of the U.S. National Cancer Institute to screen over 100,000 chemical compounds and natural products (since 1990).
+					CellMiner™ is a web application that facilitates systems biology through the retrieval and integration of the molecular and pharmacological data sets for the NCI-60 cell lines. The NCI-60 is a panel of 60 diverse human cancer cell lines used by the Developmental Therapeutics Program of the U.S. National Cancer Institute to screen over 100,000 chemical compounds and natural products (since 1990).
 					<sup class='ref'><a href="http://discover.nci.nih.gov/cellminer/home.do" target="_blank"
 	   									title="CellMiner Introduction" >ref</a></sup>
 					<br><br>
@@ -131,7 +131,7 @@ $(window).on('load resize', function(){
 					<img src="./images/Resources/UCSCCancerBrowser.PNG" alt="UCSC Cancer Browser_logo">
 				</a>
 				<p>
-					The UCSC Cancer Browser allows researchers to interactively explore cancer genomics data and its associated clinical information. Data can be viewed in a variety of ways, including by value, chromosome location, clinical feature, biological pathway or geneset of interest. It is also possible to quickly perform and easily view statistical analysis on subsets of the data.
+					The UCSC Cancer Browser allows researchers to interactively explore cancer genomics data and its associated clinical information. Data can be viewed in a variety of ways, including by value, chromosome location, clinical feature, biological pathway or geneset of interest. It is also possible to quickly perform and easily view statistical analyses on subsets of the data.
 					<sup class='ref'><a href="https://genome-cancer.ucsc.edu/proj/site/help/" target="_blank"
 	   									title="UCSC Cancer Browser Introduction" >ref</a></sup>
 					<br><br>
@@ -148,7 +148,7 @@ $(window).on('load resize', function(){
 					<img src="./images/Resources/Giant.PNG" alt="GIANT_logo" style="height:197px !important;height:142.5px !important;">
 				</a>
 				<p>
-					Genome-scale Integrated Analysis of gene Networks in Tissues (GIANT), provides an interface to human tissue networks through multi-gene queries, network visualization, analysis tools including NetWAS and downloadable networks. GIANT enables systematic exploration of the landscape of interacting genes that shape specialized cellular functions across more than a hundred human tissues and cell types.
+					Genome-scale Integrated Analysis of gene Networks in Tissues (GIANT) provides an interface to human tissue networks through multi-gene queries, network visualization, analysis tools (including NetWAS) and downloadable networks. GIANT enables systematic exploration of the landscape of interacting genes that shape specialized cellular functions across more than a hundred human tissues and cell types.
 					<sup class='ref'><a href="http://www.nature.com/ng/journal/v47/n6/full/ng.3259.html" target="_blank"
 	   									title="GIANT Introduction" >ref</a></sup>
 					<br><br>
@@ -158,7 +158,7 @@ $(window).on('load resize', function(){
 					<img src="./images/Resources/ExpressionAtlas.PNG" alt="Expression Atlas_logo" style="height:197px !important;height:142.5px !important;">
 				</a>
 				<p>
-					The Expression Atlas provides information on gene expression patterns under different biological conditions. Gene expression data is re-analysed in-house to detect genes showing interesting baseline and differential expression patterns.
+					The Expression Atlas provides information on gene expression patterns under different biological conditions. Gene expression data is re-analyzed in-house to detect genes showing interesting baseline and differential expression patterns.
 					<sup class='ref'><a href="https://www.ebi.ac.uk/gxa/about.html" target="_blank"
 	   									title="Expression Atlas Introduction" >ref</a></sup>
 					<br><br>
@@ -185,7 +185,7 @@ $(window).on('load resize', function(){
 					<img src="./images/Resources/Enrichr.JPG" alt="Enrichr_logo">
 				</a>
 				<p>
-					Enrichr is an easy to use intuitive enrichment analysis web-based tool providing various types of visualization summaries of collective functions of gene lists. Enrichr provides access to 35 gene-set libraries with many useful libraries such as those created from ENCODE enlisting many targets for many transcription factors as well as a gene-set library extracted from the NIH Roadmap Epigenomics Project for histone modifications.
+					Enrichr is an easy-to-use intuitive enrichment analysis web-based tool providing various types of visualization summaries of collective functions of gene lists. Enrichr provides access to 35 gene-set libraries with many useful libraries such as those created from ENCODE enlisting many targets for many transcription factors as well as a gene-set library extracted from the NIH Roadmap Epigenomics Project for histone modifications.
 					<sup class='ref'><a href="http://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-14-128" target="_blank"
 	   									title="Enrichr Introduction" >ref</a></sup>
 					<br><br>
@@ -195,7 +195,7 @@ $(window).on('load resize', function(){
 					<img src="./images/Resources/David.JPG" alt="DAVID_logo">
 				</a>
 				<p>
-					The Database for Annotation, Visualization and Integrated Discovery (DAVID ) provides a comprehensive set of functional annotation tools for investigators to understand biological meaning behind large list of genes.
+					The Database for Annotation, Visualization and Integrated Discovery (DAVID) provides a comprehensive set of functional annotation tools for investigators to understand the biological meaning behind a large list of genes.
 					<sup class='ref'><a href="https://david.ncifcrf.gov/home.jsp" target="_blank"
 	   									title="DAVID Introduction" >ref</a></sup>
 					<br><br>
@@ -219,7 +219,7 @@ $(window).on('load resize', function(){
 		<div class="ACcontainer">
 		    <div class="ACcontent">
 		    	<p> Please let me know:
-					Email to <a href="mailto:ling.cai@utsouthwestern.edu" style="text-decoration:underline;">ling.cai@utsouthwestern.edu</a>
+					Email any additional resources to <a href="mailto:ling.cai@utsouthwestern.edu" style="text-decoration:underline;">ling.cai@utsouthwestern.edu</a>
 		        </p>
 		    </div>
 		</div>
