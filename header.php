@@ -14,7 +14,7 @@
 		<li><a href='./FAQ.php' id='top-nav-faq' title='Frequently Asked Questions'>FAQ</a></li>
 		<li><a href='./Resources.php' id='top-nav-resources' title='Useful websites'>Resources</a></li>
 		<li><a href='./Credits.php' id='top-nav-credits' title='Acknowledgements'>Credits</a></li>
-		<li><a href='./About.php' id='top-nav-about' title='Version history'>About</a></li>
+		<!-- <li><a href='./About.php' id='top-nav-about' title='Version history'>About</a></li> -->
 		<li class="icon">
 	    <a href="javascript:void(0);" onclick="toggleMenu()"><i class="fa fa-bars"></i></a>
 	  </li>
