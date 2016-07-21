@@ -723,18 +723,6 @@ function generateScatterPlot(){
 
 
 	).then(function() {
-		if (RNA) {
-	    	console.log(RNA.mRNASeq.length);
-	    }
-	    else {
-			alert("RNA did not work");
-	    }
-	    if (CN) {
-	    	console.log(CN.All.length);
-	    }
-	    else {
-			alert("CN did not work");
-	    }
 	    if(RNA&&CN){
 			console.log(RNA.mRNASeq[0]['expression_log2']);
 			for(i=0;i<RNA.mRNASeq.length;i++){
