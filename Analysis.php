@@ -536,7 +536,7 @@ function setCohortOptions(){
 		$(".CA-only").hide();
 		$(".not-CA-only").show();
 	/* Script here to exclude LAML and MESO for the scatter plot analysis*/
-		cohortOptions = Array.apply(null, Array(21)).map(Number.prototype.valueOf,1);;
+		cohortOptions = Array.apply(null, Array(21)).map(Number.prototype.valueOf,1);
 		cohortOptions[10] = 0;
 		cohortOptions[15] = 0;
 		setOptions(cohortOptions);	
@@ -694,7 +694,7 @@ function generateScatterPlot(){
 	var RNAindex;
 	var urlRNA, urlCN;
 	var data = $.getValues("./getRNACNsymbol.php?q="+grace.id);
-	urlRNA = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=json&gene="+data['RNA']+"&cohort="+grace.cohort+"&sample_type=TP&protocol=RSEM&page_size=2000&sort_by=tcga_participant_barcode";;
+	urlRNA = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=json&gene="+data['RNA']+"&cohort="+grace.cohort+"&sample_type=TP&protocol=RSEM&page_size=2000&sort_by=tcga_participant_barcode";
 	urlCN = "http://firebrowse.org/api/v1/Analyses/CopyNumber/Genes/All?format=json&cohort="+grace.cohort+"&gene="+data['CN']+"&page_size=2000&sort_by=tcga_participant_barcode";
 
 	$scatterPlotContainer.html('<img id="loading" src="./images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin:100px;">');
@@ -724,7 +724,6 @@ function generateScatterPlot(){
 
 	).then(function() {
 	    if(RNA&&CN){
-			console.log(RNA.mRNASeq[0]['expression_log2']);
 			for(i=0;i<RNA.mRNASeq.length;i++){
 				RNAsamples.push(RNA.mRNASeq[i]['tcga_participant_barcode']);
 			}
