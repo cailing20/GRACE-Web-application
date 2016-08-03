@@ -40,15 +40,15 @@
 				<span id='entered-gene'></span>
 				<br>
 				
-				<li>Choose an Analysis</li>
+				<li id="secondStep">Choose an Analysis</li>
 				<span id='chosen-analysis'></span>
 				<br>
 				
-				<li>Pick a TCGA Cohort</li>
+				<li id="thirdStep">Pick a TCGA Cohort</li>
 				<span id='picked-cohort'></span>
 				<br>
 				
-				<li class="CA-only">Select Samples and Method</li>
+				<li id="fourthStep" class="CA-only">Select Samples and Method</li>
 				<span class="CA-only" id='selected-sampleMethod'></span>
 				<br>
 			</ul>
@@ -94,10 +94,10 @@
 			<!-- End of fieldset enter a gene -->
 			
 			<!-- Start of fieldset choose an analysis -->
-			<fieldset class="MSF card">
+			<fieldset id="second" class="MSF card" >
 				<legend>Step 2: Choose an Analysis</legend>
 					<select id='choose-analysis'>
-						<option value="RNA Copy Number Scatter Plot">RNA Copy Number Scatter Plot</option>	
+						<option value="RNA and DNA Copy Number Scatter Plot">RNA and DNA Copy Number Scatter Plot</option>	
 						<option value="Co-expression Analysis">Co-expression Analysis</option>
 					</select>
 				<input class="pre_btn" name="previous" type="button" value="Previous" onclick="clearGene()">
@@ -106,7 +106,7 @@
 			<!-- End of fieldset choose an analysis -->
 	
 			<!-- Start of fieldset choose a cohort -->
-			<fieldset class="MSF card">
+			<fieldset id="third" class="MSF card">
 				<legend>Step 3: Pick a TCGA cohort</legend>
 				<select id='TCGA-Cohort'>                    
 				<?php include_once'./cohort_options.php';?>
@@ -118,7 +118,7 @@
 			<!-- End of fieldset choose a cohort -->
 			
 			<!-- Start of fieldset choose a sample/method -->
-			<fieldset class="MSF card">
+			<fieldset id="fourth" class="MSF card">
 			<legend>Step 4: Select Samples and Method</legend>
 				<select id='sampleMethod'>                    
 					<option value="0"></option>
@@ -415,6 +415,7 @@ function checkGene(){
 			var geneInfo = geneInfoAll['geneInfo'];
 			document.getElementById('entered-gene').value = geneInfoAll['geneId'];
 			document.getElementById('entered-gene').innerHTML = geneInfo;
+			$("#firstStep").html('<i class="fa fa-pencil-square-o stepReset" onclick=reset()></i> Enter a Gene Symbol');
 			}
 		};
 		arrXhr[0].open("GET","./getGeneInfo.php?q="+grace.gene,true);
@@ -461,14 +462,19 @@ function sendAnalysis() {
 	grace.analysis = $( "#choose-analysis" ).val();
 	document.getElementById('chosen-analysis').innerHTML = grace.analysis;
 	grace.id = document.getElementById('entered-gene').value;
+	$("#secondStep").html('<i class="fa fa-pencil-square-o stepReset" onclick=resetAnalysis()></i> Choose An Analysis');
+	
 }
 function sendCohort() {
 	grace.cohort = $( "#TCGA-Cohort" ).val();
 	document.getElementById('picked-cohort').innerHTML = grace.cohort;
+	$("#thirdStep").html('<i class="fa fa-pencil-square-o stepReset" onclick=resetCohort()></i> Pick A TCGA Cohort');
 }
 function sendSampleMethod() {
 	grace.sampleMethodId = $("#sampleMethod").val();
 	document.getElementById('selected-sampleMethod').innerHTML = document.getElementById('sampleMethod').options[Number(grace.sampleMethodId)].text;
+	$("#fourthStep").html('<i class="fa fa-pencil-square-o stepReset" onclick=resetSampleMethod()></i> Select Samples and Method');
+	
 }
 
 //The following lines are to clear values from progress bar, it is called when users click the previous button or the reset button
@@ -476,18 +482,22 @@ function clearGene(){
 	grace.gene = '';
 	grace.validGene = false;
 	document.getElementById('entered-gene').innerHTML = grace.gene;
+	$("#firstStep").html('Enter a Gene Symbol');
 }
 function clearAnalysis(){
 	grace.analysis = '';
 	document.getElementById('chosen-analysis').innerHTML = grace.analysis;
+	$("#secondStep").html('Choose an Analysis');
 }
 function clearCohort(){
 	grace.cohort = '';
 	document.getElementById('picked-cohort').innerHTML = grace.cohort;
+	$("#thirdStep").html('Pick a TCGA Cohort');
 }
 function clearSampleMethod(){
 	grace.sampleMethod = '';
 	document.getElementById('selected-sampleMethod').innerHTML = grace.sampleMethod;
+	$("#fourthStep").html('Select Samples and Method');
 }
 
 //The following lines are to display additional options based on type of analysis
@@ -526,7 +536,7 @@ function setCohortOptions(){
 		$(".CA-only").hide();
 		$(".not-CA-only").show();
 	/* Script here to exclude LAML and MESO for the scatter plot analysis*/
-		cohortOptions = Array.apply(null, Array(21)).map(Number.prototype.valueOf,1);;
+		cohortOptions = Array.apply(null, Array(21)).map(Number.prototype.valueOf,1);
 		cohortOptions[10] = 0;
 		cohortOptions[15] = 0;
 		setOptions(cohortOptions);	
@@ -562,6 +572,92 @@ function setSampleMethodOptions(){
 function showReset(){
 	document.getElementById('reset').style.display="block";
 }
+function resetAnalysis(){
+	document.getElementById('reset').style.display="none";
+	//clearGene();
+	clearAnalysis();
+	clearCohort();
+	clearSampleMethod();
+	$("li").removeClass("MSFactive");
+	$("#firstStep").addClass("MSFactive");
+	$("#secondStep").addClass("MSFactive");
+	$(".MSF").hide();
+	$("#second").show();
+	$("#CoexpressionAnalysisResult").hide();
+	$("#CoexpFollowUp").hide();
+	$("#scatterPlot").hide();
+	$("#EnrichmentOutput").hide();
+	$("#EnrichmentOutput").removeClass("card");
+
+	//$("#firstStep").html('Enter a Gene Symbol');
+	$("#secondStep").html('Choose an Analysis');
+	$("#thirdStep").html('Pick a TCGA Cohort');
+	$("#fourthStep").html('Select Samples and Method');
+	
+	grace.length = '100';
+	grace.order = 'asc';
+	grace.setDB = '0';
+	grace.setID = '-1';
+}
+function resetCohort(){
+	document.getElementById('reset').style.display="none";
+	//clearGene();
+	//clearAnalysis();
+	clearCohort();
+	clearSampleMethod();
+	$("li").removeClass("MSFactive");
+	$("#firstStep").addClass("MSFactive");
+	$("#secondStep").addClass("MSFactive");
+	$("#thirdStep").addClass("MSFactive");
+	$(".MSF").hide();
+	$("#third").show();
+	$("#CoexpressionAnalysisResult").hide();
+	$("#CoexpFollowUp").hide();
+	$("#scatterPlot").hide();
+	$("#EnrichmentOutput").hide();
+	$("#EnrichmentOutput").removeClass("card");
+
+	//$("#firstStep").html('Enter a Gene Symbol');
+	//$("#secondStep").html('Choose an Analysis');
+	$("#thirdStep").html('Pick a TCGA Cohort');
+	$("#fourthStep").html('Select Samples and Method');
+	
+	grace.length = '100';
+	grace.order = 'asc';
+	grace.setDB = '0';
+	grace.setID = '-1';
+}
+
+function resetSampleMethod(){
+	document.getElementById('reset').style.display="none";
+	//clearGene();
+	//clearAnalysis();
+	//clearCohort();
+	clearSampleMethod();
+	$("li").removeClass("MSFactive");
+	$("#firstStep").addClass("MSFactive");
+	$("#secondStep").addClass("MSFactive");
+	$("#thirdStep").addClass("MSFactive");
+	$("#fourthStep").addClass("MSFactive");
+	$(".MSF").hide();
+	$("#fourth").show();
+	$("#CoexpressionAnalysisResult").hide();
+	$("#CoexpFollowUp").hide();
+	$("#scatterPlot").hide();
+	$("#EnrichmentOutput").hide();
+	$("#EnrichmentOutput").removeClass("card");
+
+	//$("#firstStep").html('Enter a Gene Symbol');
+	//$("#secondStep").html('Choose an Analysis');
+	//$("#thirdStep").html('Pick a TCGA Cohort');
+	$("#fourthStep").html('Select Samples and Method');
+	
+	grace.length = '100';
+	grace.order = 'asc';
+	grace.setDB = '0';
+	grace.setID = '-1';
+}
+
 function reset(){
 	document.getElementById('reset').style.display="none";
 	clearGene();
@@ -577,6 +673,12 @@ function reset(){
 	$("#scatterPlot").hide();
 	$("#EnrichmentOutput").hide();
 	$("#EnrichmentOutput").removeClass("card");
+
+	$("#firstStep").html('Enter a Gene Symbol');
+	$("#secondStep").html('Choose an Analysis');
+	$("#thirdStep").html('Pick a TCGA Cohort');
+	$("#fourthStep").html('Select Samples and Method');
+	
 	grace.length = '100';
 	grace.order = 'asc';
 	grace.setDB = '0';
@@ -592,10 +694,10 @@ function generateScatterPlot(){
 	var RNAindex;
 	var urlRNA, urlCN;
 	var data = $.getValues("./getRNACNsymbol.php?q="+grace.id);
-	urlRNA = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=json&gene="+data['RNA']+"&cohort="+grace.cohort+"&sample_type=TP&protocol=RSEM&page_size=2000&sort_by=tcga_participant_barcode";;
+	urlRNA = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=json&gene="+data['RNA']+"&cohort="+grace.cohort+"&sample_type=TP&protocol=RSEM&page_size=2000&sort_by=tcga_participant_barcode";
 	urlCN = "http://firebrowse.org/api/v1/Analyses/CopyNumber/Genes/All?format=json&cohort="+grace.cohort+"&gene="+data['CN']+"&page_size=2000&sort_by=tcga_participant_barcode";
 
-	$scatterPlotContainer.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="width:50px;height:50px;margin:100px;">');
+	$scatterPlotContainer.html('<img id="loading" src="./images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin:100px;">');
 	$scatterPlotContainer.show();
 	$.when(
 		$.ajax({
@@ -621,20 +723,7 @@ function generateScatterPlot(){
 
 
 	).then(function() {
-		if (RNA) {
-	    	console.log(RNA.mRNASeq.length);
-	    }
-	    else {
-			alert("RNA did not work");
-	    }
-	    if (CN) {
-	    	console.log(CN.All.length);
-	    }
-	    else {
-			alert("CN did not work");
-	    }
 	    if(RNA&&CN){
-			console.log(RNA.mRNASeq[0]['expression_log2']);
 			for(i=0;i<RNA.mRNASeq.length;i++){
 				RNAsamples.push(RNA.mRNASeq[i]['tcga_participant_barcode']);
 			}
@@ -695,7 +784,7 @@ function generateScatterPlot(){
 		            enabled: false
 		        },
 		        exporting: { 
-			        enabled: false 
+			        enabled: true 
 			    },
 		        plotOptions: {
 		            scatter: {
@@ -735,7 +824,7 @@ function generateScatterPlot(){
 // For coexpression analysis table 
 function generateCoexpressionAnalysisResult(){
 	var $coexp = $('#CoexpressionAnalysisResult');
-	$coexp.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="width:50px;height:50px;margin-left:auto;margin-right:auto;margin-top:150px;display:block;">');
+	$coexp.html('<img id="loading" src="./images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin-left:auto;margin-right:auto;margin-top:150px;display:block;">');
 	xmlhttp = new XMLHttpRequest();
  	xmlhttp.onreadystatechange = function() {
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -744,11 +833,13 @@ function generateCoexpressionAnalysisResult(){
 		var symbols = coexpTable['symbols'];
 		var locus = coexpTable['locus'];
 		var description = coexpTable['description'];
+		var entrezID = coexpTable['entrezID'];
 		var coefs = coexpTable['coefs'];
 		if(grace.setID>=0){
 			var inSetIds = coexpTable['inSetIds'];
 		}
 		var tr=[];
+
 		tr.push('<table id="geneTable">');
 		tr.push('<tr>');
 		tr.push('<th>Rank</th>');
@@ -762,7 +853,7 @@ function generateCoexpressionAnalysisResult(){
 		for (var i = 0; i < description.length; i++) {
 		    tr.push('<tr>');
 		    tr.push("<td>" + (i+1) + "</td>");
-		    tr.push('<td title="'+description[i]+'">' + symbols[i].symbol + '</td>');
+		    tr.push('<td><a href="http://biogps.org/#goto=genereport&id='+entrezID[i]+'" title="'+description[i]+'" target="_blank">' + symbols[i].symbol + '</a></td>');
 		    tr.push("<td>" + coefs[i] + "</td>");
 		    tr.push("<td>" + locus[i] + "</td>");
 		    if(grace.setID>=0){
@@ -798,7 +889,7 @@ function refreshCoexpressionAnalysisResult(){
 //The following enrichment analysis is based on hypergeometric test
 function enrichmentAnalysis(){
 	var $output = $('#EnrichmentOutput');
-	$output.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="display:block;margin:auto;padding-top:50px;width:50px;">');
+	$output.html('<img id="loading" src="./images/ajax-loader.GIF" alt="Loading" style="display:block;margin:auto;padding-top:50px;width:50px;">');
 	grace.length = $('#followUpForm').find('input[name="quantity"]').val();
 	grace.order = $('input[name=corTrend]:checked', '#followUpForm').val();
 	grace.setDB = $('#setDB').val();
