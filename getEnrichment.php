@@ -13,7 +13,7 @@ $order = $_GET['order'];
 $setDB = $_GET['setDB'];
 
 $methods = ["tumor_RNA","tumor_RES","normal"];
-$fileName = "file:///Z:/TCGA_NeighborProject/Website/Database/JSON/".$methods[$method]."/".$cohort."/";
+$fileName = "/mnt/database/JSON/".$methods[$method]."/".$cohort."/";
 $fileName.= strval(200*floor($id/200)+1)."-".strval(200*ceil($id/200))."/".$id.".json";
 $json = file_get_contents($fileName);
 $coexpResult = json_decode($json,true);

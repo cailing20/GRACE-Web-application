@@ -19,7 +19,7 @@ $setDBs = ["kegg_sets","genefamily_sets","reactome_sets","pid_sets","go_biologic
 		"go_cellular_component_2015_sets","go_molecular_function_2015_sets","human_phenotype_ontology_sets",
 		"mgi_mammalian_phenotype_2013_sets","omim_disease_sets","omim_expanded_sets","chea_2015_sets",
 		"hmdb_metabolites_sets"];
-$fileName = "file:///Z:/TCGA_NeighborProject/Website/Database/JSON/".$methods[$method]."/".$cohort."/";
+$fileName = "/mnt/database/JSON/".$methods[$method]."/".$cohort."/";
 $fileName.= strval(200*floor($id/200)+1)."-".strval(200*ceil($id/200))."/".$id.".json";
 $json = file_get_contents($fileName);
 $dat = json_decode($json,true);

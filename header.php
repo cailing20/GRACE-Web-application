@@ -1,8 +1,8 @@
 
 <div class="top-container">
 	<div class='top-logo-container'>
-		<a href='./index.php'>
-		<img class="logo" src="./images/GraceLogo.png" alt="Grace Logo">
+		<a href='index.php'>
+		<img class="logo" src="images/GraceLogo.png" alt="Grace Logo">
 		</a>
 	</div>
 	<div class='top-description'>Genomic Regression Analysis of Coordinated Expression</div>
