@@ -853,7 +853,7 @@ function generateCoexpressionAnalysisResult(){
 		for (var i = 0; i < description.length; i++) {
 		    tr.push('<tr>');
 		    tr.push("<td>" + (i+1) + "</td>");
-		    tr.push('<td><a href="http://biogps.org/#goto=genereport&id='+entrezID[i]+'" title="'+description[i]+'" target="_blank">' + symbols[i].symbol + '</a></td>');
+		    tr.push('<td><a style="text-decoration: underline;" href="http://biogps.org/#goto=genereport&id='+entrezID[i]+'" title="'+description[i]+'" target="_blank">' + symbols[i].symbol + '</a></td>');
 		    tr.push("<td>" + coefs[i] + "</td>");
 		    tr.push("<td>" + locus[i] + "</td>");
 		    if(grace.setID>=0){
