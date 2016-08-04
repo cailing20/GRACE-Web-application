@@ -697,7 +697,7 @@ function generateScatterPlot(){
 	urlRNA = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=json&gene="+data['RNA']+"&cohort="+grace.cohort+"&sample_type=TP&protocol=RSEM&page_size=2000&sort_by=tcga_participant_barcode";
 	urlCN = "http://firebrowse.org/api/v1/Analyses/CopyNumber/Genes/All?format=json&cohort="+grace.cohort+"&gene="+data['CN']+"&page_size=2000&sort_by=tcga_participant_barcode";
 
-	$scatterPlotContainer.html('<img id="loading" src="./images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin:100px;">');
+	$scatterPlotContainer.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="width:50px;height:50px;margin:100px;">');
 	$scatterPlotContainer.show();
 	$.when(
 		$.ajax({
@@ -824,7 +824,7 @@ function generateScatterPlot(){
 // For coexpression analysis table 
 function generateCoexpressionAnalysisResult(){
 	var $coexp = $('#CoexpressionAnalysisResult');
-	$coexp.html('<img id="loading" src="./images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin-left:auto;margin-right:auto;margin-top:150px;display:block;">');
+	$coexp.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="width:50px;height:50px;margin-left:auto;margin-right:auto;margin-top:150px;display:block;">');
 	xmlhttp = new XMLHttpRequest();
  	xmlhttp.onreadystatechange = function() {
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -889,7 +889,7 @@ function refreshCoexpressionAnalysisResult(){
 //The following enrichment analysis is based on hypergeometric test
 function enrichmentAnalysis(){
 	var $output = $('#EnrichmentOutput');
-	$output.html('<img id="loading" src="./images/ajax-loader.GIF" alt="Loading" style="display:block;margin:auto;padding-top:50px;width:50px;">');
+	$output.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="display:block;margin:auto;padding-top:50px;width:50px;">');
 	grace.length = $('#followUpForm').find('input[name="quantity"]').val();
 	grace.order = $('input[name=corTrend]:checked', '#followUpForm').val();
 	grace.setDB = $('#setDB').val();
