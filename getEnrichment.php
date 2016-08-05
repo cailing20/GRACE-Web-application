@@ -15,7 +15,12 @@ $setDB = trim(stripslashes(htmlspecialchars($_GET['setDB'])));
 $methods = ["tumor_RNA","tumor_RES","normal"];
 $fileName = "/mnt/database/JSON/".$methods[$method]."/".$cohort."/";
 $fileName.= strval(200*floor($id/200)+1)."-".strval(200*ceil($id/200))."/".$id.".json";
-$json = file_get_contents($fileName);
+$fileName = realpath($fileName);
+if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+  $json = file_get_contents($fileName);
+} else {
+  header("Location:index.php");
+}
 $coexpResult = json_decode($json,true);
 if($order=='asc'){
 	$ids = array_slice($coexpResult['id'],0,$length);
@@ -27,7 +32,12 @@ $setDBs=["kegg","GeneFamily","REACTOME","PID","GO_BIOLOGICAL_PROCESS_2015","GO_C
 		"HUMAN_PHENOTYPE_ONTOLOGY","MGI_MAMMALIAN_PHENOTYPE_2013","OMIM_DISEASE","OMIM_EXPANDED","CHEA_2015",
 		"HMDB_METABOLITES"];
 $fileName = "./json/".$setDBs[$setDB].".json";
-$json = file_get_contents($fileName);
+$fileName = realpath($fileName);
+if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+  $json = file_get_contents($fileName);
+} else {
+  header("Location:index.php");
+}
 $geneSets = json_decode($json,true);
 
 

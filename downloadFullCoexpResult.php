@@ -15,7 +15,12 @@ $methods = ["tumor_RNA","tumor_RES","normal"];
 $methodNames = ["TumorStandard","TumorGRACE","NormalStandard"];
 $fileName = "/mnt/database/JSON/".$methods[$method]."/".$cohort."/";
 $fileName.= strval(200*floor($id/200)+1)."-".strval(200*ceil($id/200))."/".$id.".json";
-$json = file_get_contents($fileName);
+$fileName = realpath($fileName);
+if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+  $json = file_get_contents($fileName);
+} else {
+  header("Location:index.php");
+}
 $dat = json_decode($json,true);
 $ids = $dat['id'];
 $coefs = $dat['coef'];

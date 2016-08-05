@@ -21,7 +21,12 @@ $setDBs = ["kegg_sets","genefamily_sets","reactome_sets","pid_sets","go_biologic
 		"hmdb_metabolites_sets"];
 $fileName = "/mnt/database/JSON/".$methods[$method]."/".$cohort."/";
 $fileName.= strval(200*floor($id/200)+1)."-".strval(200*ceil($id/200))."/".$id.".json";
-$json = file_get_contents($fileName);
+$fileName = realpath($fileName);
+if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+  $json = file_get_contents($fileName);
+} else {
+  header("Location:index.php");
+}
 $dat = json_decode($json,true);
 if($length==(0)){
 	$length = count($dat['id']);
@@ -59,7 +64,12 @@ try {
 	echo $e->getMessage();
 }
 if($setID>=0){
-	$json = file_get_contents($fileName);
+        $fileName = realpath($fileName);
+        if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+          $json = file_get_contents($fileName);
+        } else {
+          header("Location:index.php");
+        }
 	$dat = json_decode($json,true);
 }
 $coexp_data = array();
