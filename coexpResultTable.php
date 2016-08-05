@@ -1,11 +1,11 @@
 <?php
-$method = $_GET['method'];
-$cohort = $_GET['cohort'];
-$id = $_GET['id'];
-$length = $_GET['length'];
-$order = $_GET['order'];
-$setID = $_GET['setID'];
-$setDB = $_GET['setDB'];
+$method = trim(stripslashes(htmlspecialchars($_GET['method'])));
+$cohort = trim(stripslashes(htmlspecialchars($_GET['cohort'])));
+$id = trim(stripslashes(htmlspecialchars($_GET['id'])));
+$length = trim(stripslashes(htmlspecialchars($_GET['length'])));
+$order = trim(stripslashes(htmlspecialchars($_GET['order'])));
+$setID = trim(stripslashes(htmlspecialchars($_GET['setID'])));
+$setDB = trim(stripslashes(htmlspecialchars($_GET['setDB'])));
 /* $method = '1';
 $cohort = 'COAD';
 $id = '2949';

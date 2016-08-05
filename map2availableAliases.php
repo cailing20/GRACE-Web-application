@@ -1,7 +1,7 @@
 <?php
 require_once('./connection.php');
 $db = Db::getInstance();
-$q = $_GET['q'];
+$q = trim(stripslashes(htmlspecialchars($_GET['q'])));
 if(empty($q)){
 	echo "Gene Symbol is required!";
 } else{

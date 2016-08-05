@@ -1,7 +1,7 @@
 <?php
 require_once('./connection.php');
 $db = Db::getInstance();
-$g = $_GET['g'];
+$g = trim(stripslashes(htmlspecialchars($_GET['g'])));
 $cohortEnabled = array_fill(0, 21, 0);
 
 try {

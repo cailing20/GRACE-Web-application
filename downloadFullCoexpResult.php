@@ -1,8 +1,8 @@
 <?php
-$gene = $_GET['gene'];
-$method = $_GET['method'];
-$cohort = $_GET['cohort'];
-$id = $_GET['id'];
+$gene = trim(stripslashes(htmlspecialchars($_GET['gene'])));
+$method = trim(stripslashes(htmlspecialchars($_GET['method'])));
+$cohort = trim(stripslashes(htmlspecialchars($_GET['cohort'])));
+$id = trim(stripslashes(htmlspecialchars($_GET['id'])));
 /* $method = '1';
 $cohort = 'COAD';
 $id = '2949';

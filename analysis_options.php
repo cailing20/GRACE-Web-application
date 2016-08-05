@@ -1,7 +1,7 @@
 <?php
 require_once('./connection.php');
 $db = Db::getInstance();
-$q = $_GET['q'];
+$q = trim(stripslashes(htmlspecialchars($_GET['q'])));
 try {
 	$sql = "SELECT * FROM analysis_availability WHERE gene_id = (SELECT `id` FROM gene_symbols WHERE `symbol` ='".$q."')";
 	$result = $db->query($sql);

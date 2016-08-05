@@ -1,8 +1,8 @@
 <?php
 require_once('./connection.php');
 $db = Db::getInstance();
-$g = $_GET['g'];
-$c = $_GET['c'];
+$g = trim(stripslashes(htmlspecialchars($_GET['g'])));
+$c = trim(stripslashes(htmlspecialchars($_GET['c'])));
 $sampleMethodOptions = ["Tumor Samples - Standard Method","Tumor Samples - GRACE", "Normal Samples - Standard Method"];
 $samplemethodEnabled = array_fill(0, 3, 0);
 $sampleNumber = array_fill(0,3,0);
