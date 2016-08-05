@@ -13,10 +13,13 @@ $order = trim(stripslashes(htmlspecialchars($_GET['order'])));
 $setDB = trim(stripslashes(htmlspecialchars($_GET['setDB'])));
 
 $methods = ["tumor_RNA","tumor_RES","normal"];
-$fileName = "/mnt/database/JSON/".$methods[$method]."/".$cohort."/";
+// parse without sections
+$config = parse_ini_file('../config/config.ini');
+$_JSONpath = $config['JSONpath'];
+$fileName = $_JSONpath.$methods[$method]."/".$cohort."/";
 $fileName.= strval(200*floor($id/200)+1)."-".strval(200*ceil($id/200))."/".$id.".json";
 $fileName = realpath($fileName);
-if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+if ( $_JSONpath == substr($fileName, 0 , 19)) {
   $json = file_get_contents($fileName);
 } else {
   header("Location:index.php");
@@ -33,7 +36,7 @@ $setDBs=["kegg","GeneFamily","REACTOME","PID","GO_BIOLOGICAL_PROCESS_2015","GO_C
 		"HMDB_METABOLITES"];
 $fileName = "./json/".$setDBs[$setDB].".json";
 $fileName = realpath($fileName);
-if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+if ( $_JSONpath == substr($fileName, 0 , 19)) {
   $json = file_get_contents($fileName);
 } else {
   header("Location:index.php");

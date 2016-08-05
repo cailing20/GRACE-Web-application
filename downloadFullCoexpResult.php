@@ -13,10 +13,13 @@ $setDB = '1'; */
 
 $methods = ["tumor_RNA","tumor_RES","normal"];
 $methodNames = ["TumorStandard","TumorGRACE","NormalStandard"];
-$fileName = "/mnt/database/JSON/".$methods[$method]."/".$cohort."/";
+// parse without sections
+$config = parse_ini_file('../config/config.ini');
+$_JSONpath = $config['JSONpath'];
+$fileName = $_JSONpath.$methods[$method]."/".$cohort."/";
 $fileName.= strval(200*floor($id/200)+1)."-".strval(200*ceil($id/200))."/".$id.".json";
 $fileName = realpath($fileName);
-if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+if ( $_JSONpath == substr($fileName, 0 , 19)) {
   $json = file_get_contents($fileName);
 } else {
   header("Location:index.php");
@@ -27,7 +30,7 @@ $coefs = $dat['coef'];
 
 require_once('./connection.php');
 $db = Db::getInstance();
-$json = file_get_contents('/mnt/database/JSON/tumor_RES/BRCA/13001-13200/13092.json');
+$json = file_get_contents("$_JSONpath.'tumor_RES/BRCA/13001-13200/13092.json'");
 try {
 	$sql = "SELECT * FROM gene_symbols WHERE `id` IN (".implode(',', $ids).") ORDER BY `id`" ;
 	$stmt = $db->query($sql);

@@ -14,15 +14,19 @@ $order = 'asc';
 $setID = '0';
 $setDB = '1'; */
 
+// parse without sections
+$config = parse_ini_file('../config/config.ini');
+$_JSONpath = $config['JSONpath'];
+
 $methods = ["tumor_RNA","tumor_RES","normal"];
 $setDBs = ["kegg_sets","genefamily_sets","reactome_sets","pid_sets","go_biological_process_2015_sets",
 		"go_cellular_component_2015_sets","go_molecular_function_2015_sets","human_phenotype_ontology_sets",
 		"mgi_mammalian_phenotype_2013_sets","omim_disease_sets","omim_expanded_sets","chea_2015_sets",
 		"hmdb_metabolites_sets"];
-$fileName = "/mnt/database/JSON/".$methods[$method]."/".$cohort."/";
+$fileName = $_JSONpath.$methods[$method]."/".$cohort."/";
 $fileName.= strval(200*floor($id/200)+1)."-".strval(200*ceil($id/200))."/".$id.".json";
 $fileName = realpath($fileName);
-if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+if ( $_JSONpath == substr($fileName, 0 , 19)) {
   $json = file_get_contents($fileName);
 } else {
   header("Location:index.php");
@@ -65,7 +69,7 @@ try {
 }
 if($setID>=0){
         $fileName = realpath($fileName);
-        if ( "/mnt/database/JSON/" == substr($fileName, 0 , 19)) {
+        if ( $_JSONpath == substr($fileName, 0 , 19)) {
           $json = file_get_contents($fileName);
         } else {
           header("Location:index.php");
