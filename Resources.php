@@ -219,7 +219,7 @@ $(window).on('load resize', function(){
 		<div class="ACcontainer">
 		    <div class="ACcontent">
 		    	<p> Please let me know:
-					Email any additional resources to <a href="mailto:ling.cai@utsouthwestern.edu" style="text-decoration:underline;">ling.cai@utsouthwestern.edu</a>
+					Email any additional resources to ling[dot]cai[at]utsouthwestern[dot]edu
 		        </p>
 		    </div>
 		</div>

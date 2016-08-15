@@ -225,7 +225,7 @@ $(window).on('load resize', function(){
 		<div class="ACcontainer">
 		    <div class="ACcontent">
 		    	<p>
-					Questions, suggestions, opinions and criticism are all welcome! Email to <a href="mailto:ling.cai@utsouthwestern.edu" style="text-decoration:underline;">ling.cai@utsouthwestern.edu</a>
+					Questions, suggestions, opinions and criticism are all welcome! Email to ling[dot]cai[at]utsouthwestern[dot]edu
 		        </p>
 		    </div>
 		</div>
