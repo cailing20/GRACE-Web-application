@@ -117,7 +117,7 @@
 
 	<div id="SCNA" class='homeContent'>
 
-		<div class="home-image-container card"><img class="home-image" src="./images/HOME_SCNA.PNG" alt="BRCA_SCNA_Chr1"></div>
+		<div class="home-image-container card"><img class="home-image" src="./images/HOME_SCNA.png" alt="BRCA_SCNA_Chr1"></div>
 
 		<h3 class="home-title"><b>Somatic Copy Number Alteration (SCNA) in Cancer</b></h3>
 
@@ -143,7 +143,7 @@
 
 	<div id="StandardAnalysis" class='homeContent'>
 
-		<div class="home-image-container card"><img class="home-image" src="./images/HOME_EIF2DbyStandardMethod.PNG" alt="EIF2D coexpressing genes by standard method"></div>
+		<div class="home-image-container card"><img class="home-image" src="./images/HOME_EIF2DbyStandardMethod.png" alt="EIF2D coexpressing genes by standard method"></div>
 
 		<h3 class="home-title"><b>Standard Co-expression Analysis in Cancer</b></h3>
 
@@ -161,7 +161,7 @@
 
 	<div id="GRACE_Method" class='homeContent'>
 
-		<div class="home-image-container card" style="width:280px !important;float:left;margin-right:20px;margin-top:10px;"><img class="home-image" src="./images/HOME_GRACEMethod.PNG" alt="Residuals from regressing RNA on copy number for EIF2D" style="width:250px !important;"></div>
+		<div class="home-image-container card" style="width:280px !important;float:left;margin-right:20px;margin-top:10px;"><img class="home-image" src="./images/HOME_GRACEMethod.png" alt="Residuals from regressing RNA on copy number for EIF2D" style="width:250px !important;"></div>
 
 		<h3 class="home-title"><b>GRACE method</b></h3>
 
@@ -179,7 +179,7 @@
 
 	<div id="GRACE_performance" class='homeContent'>
 
-		<div class="home-image-container card"><img class="home-image" src="./images/HOME_EIF2DbyGRACEMethod.PNG" alt="EIF2D coexpressing genes by GRACE method"></div>
+		<div class="home-image-container card"><img class="home-image" src="./images/HOME_EIF2DbyGRACEMethod.png" alt="EIF2D coexpressing genes by GRACE method"></div>
 
 		<h3 class="home-title"><b>Genomic Regression Analysis of Coordinated Expression in Cancer</b></h3>
 
