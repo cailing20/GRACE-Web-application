@@ -6,6 +6,8 @@ if(empty($q)){
 	echo "Gene Symbol is required!";
 } else{
 	$q = trim(stripslashes(htmlspecialchars($q)));
+	
+	if(preg_match("/^[a-zA-Z0-9-_]*$/", $q)){
 	try {
 		/* The following prepares the description for genes from the gene set */
 		$sql = "SELECT `gene_id` FROM available_aliases WHERE `alias`='".$q."'";
@@ -67,13 +69,21 @@ if(empty($q)){
 				}
 			}
 		}
+		unset($sql);
+		unset($result);
 	
 	}catch(PDOException $e) {
 		echo $e->getMessage();
 	}
+	} else {
+	
+		echo "Invalid Gene Name.";
+	
+	}
+	
+	
 }
-unset($sql);
-unset($result);
+
 
 $db = null;
 
