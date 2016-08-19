@@ -1,5 +1,5 @@
 <?php
-require_once('./connection.php');
+require_once('connection.php');
 $db = Db::getInstance();
 try {
 	/* The following prepares the description for genes from the gene set */

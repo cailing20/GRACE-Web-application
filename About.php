@@ -9,9 +9,9 @@
 <meta name="Description" content="Bioinformatic tool to retrieve correlated genes from tumor and normal tissue data based on a novel genomic regression method."/>
 
 <!-- For the home icon -->
-<link rel="stylesheet" href="./css/font-awesome.min.css">
-<link rel="stylesheet" href="./css/w3.css">
-<link rel="stylesheet" href="./css/grace.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/grace.css">
 <style>
 .about{
 	display:inline-block;
@@ -27,42 +27,42 @@
 	display:block;
 }
 </style>
-<script src="./js/jquery-2.2.1.min.js"></script>
+<script src="js/jquery-2.2.1.min.js"></script>
 
 </head>
 
 <body>
 <div class="wrapper-main">
-	<?php include_once './header.php';?>
+	<?php include_once 'header.php';?>
 	<div style="margin:20px">
 		<h2>This is still work in progress...</h2><br>
 		
 		<h2>What's next</h2>
 		
 		<div class="about card">
-			<img src="./images/About/debug.jpg" alt="Debug">
+			<img src="images/About/debug.jpg" alt="Debug">
 			<p>Debug</p>
 		</div>
 		
 		<div class="about card">
-			<img src="./images/About/responsive_design.png" alt="Web Responsive Design">
+			<img src="images/About/responsive_design.png" alt="Web Responsive Design">
 			<p>Responsive Design</p>
 		</div>
 		
 		<div class="about card">
-			<img src="./images/About/browser_compatibility.png" alt="Browser Compatibility">
+			<img src="images/About/browser_compatibility.png" alt="Browser Compatibility">
 			<p>Broser Compatibility</p>
 		</div>
 		
 		<div class="about card">
-			<img src="./images/About/security.jpg" alt="Security">
+			<img src="images/About/security.jpg" alt="Security">
 			<p>Security</p>
 		</div>
 
 	</div>
 	<div class="push"></div>
 </div>
-<?php include_once './footer.php';?>
+<?php include_once 'footer.php';?>
 
 
 <script>

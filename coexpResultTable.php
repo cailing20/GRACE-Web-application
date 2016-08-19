@@ -33,7 +33,7 @@ if($order=='asc'){
 }
 
 
-require_once('./connection.php');
+require_once('connection.php');
 $db = Db::getInstance();
 try {
 	$sql = "SELECT `symbol` FROM gene_symbols WHERE id IN(".implode(',', $ids);

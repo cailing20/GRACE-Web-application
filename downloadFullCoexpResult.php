@@ -20,7 +20,7 @@ $dat = json_decode($json,true);
 $ids = $dat['id'];
 $coefs = $dat['coef'];
 
-require_once('./connection.php');
+require_once('connection.php');
 $db = Db::getInstance();
 $json = file_get_contents('file:///Z:/TCGA_NeighborProject/Website/Database/JSON/tumor_RES/BRCA/13001-13200/13092.json');
 try {

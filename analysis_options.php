@@ -1,5 +1,5 @@
 <?php
-require_once('./connection.php');
+require_once('connection.php');
 $db = Db::getInstance();
 $q = $_GET['q'];
 if(preg_match("/^[a-zA-Z0-9-_]*$/", $q)){

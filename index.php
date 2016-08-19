@@ -9,17 +9,17 @@
 <meta name="Keywords" content="Regression, Copy Number, RNA, gene expression, correlation, co-expression"/>
 <meta name="Description" content="Bioinformatic tool to retrieve correlated genes from tumor and normal tissue data based on a novel genomic regression method."/>
 
-<link rel="stylesheet" href="./css/font-awesome.min.css">
-<link rel="stylesheet" href="./css/w3.css">
-<link rel="stylesheet" href="./css/grace.css">
-<script src="./js/jquery-2.2.1.min.js"></script>
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/grace.css">
+<script src="js/jquery-2.2.1.min.js"></script>
 <!-- classList problem for IE -->
-<script src="./js/classList.min.js"></script>
+<script src="js/classList.min.js"></script>
 </head>
 
 <body class="home-body">
 <div class="wrapper-main">
-	<?php include_once './header.php';?>
+	<?php include_once 'header.php';?>
 	
 	
 	<!-- Start of the left navigation menu for home content -->
@@ -58,7 +58,7 @@
 	</div>
 	
 	<div id="SCNA" class='homeContent'>
-		<div class="home-image-container card"><img class="home-image" src="./images/HOME_SCNA.PNG" alt="BRCA_SCNA_Chr1"></div>
+		<div class="home-image-container card"><img class="home-image" src="images/HOME_SCNA.PNG" alt="BRCA_SCNA_Chr1"></div>
 		<h3 class="home-title"><b>Somatic Copy Number Alteration (SCNA) in Cancer</b></h3>
 		<p>Somatic copy number alteration (SCNA) is commonly seen in cancer. 
 		For example, plotted in the figure are the relative copy number levels of chromosome 1 using 1075 samples from TCGA Breast Invasive Carcinoma (BRCA) study
@@ -71,7 +71,7 @@
 	</div>
 	
 	<div id="StandardAnalysis" class='homeContent'>
-		<div class="home-image-container card"><img class="home-image" src="./images/HOME_EIF2DbyStandardMethod.PNG" alt="EIF2D coexpressing genes by standard method"></div>
+		<div class="home-image-container card"><img class="home-image" src="images/HOME_EIF2DbyStandardMethod.PNG" alt="EIF2D coexpressing genes by standard method"></div>
 		<h3 class="home-title"><b>Standard Co-expression Analysis in Cancer</b></h3>
 		<p>Because of frequent SCNA events in cancer, standard co-expression analysis using cancer transcriptomic data often identify physically neighboring genes as being co-expressed. 
 		For example, the top 10 co-expressing genes for EIF2D, a gene on chromosome 1q32, encoding eukaryotic translation initiation factor 2D that locates at chromosome 1q32, are all located nearby or from the same 1q32. 
@@ -80,7 +80,7 @@
 	</div>
 	
 	<div id="GRACE_Method" class='homeContent'>
-		<div class="home-image-container card" style="width:280px !important;float:left;margin-right:20px;margin-top:10px;"><img class="home-image" src="./images/HOME_GRACEMethod.PNG" alt="Residuals from regressing RNA on copy number for EIF2D" style="width:250px !important;"></div>
+		<div class="home-image-container card" style="width:280px !important;float:left;margin-right:20px;margin-top:10px;"><img class="home-image" src="images/HOME_GRACEMethod.PNG" alt="Residuals from regressing RNA on copy number for EIF2D" style="width:250px !important;"></div>
 		<h3 class="home-title"><b>GRACE method</b></h3>
 		<p>To correct for the bias from SCNA in co-expression analysis, we fit a linear regression model using copy number as the explanatory variable and RNA levels as the response variable. 
 		The residuals from this linear regression model represent variations in RNA that cannot be explained by copy number variations. 
@@ -89,7 +89,7 @@
 	</div>
 	
 	<div id="GRACE_performance" class='homeContent'>
-		<div class="home-image-container card"><img class="home-image" src="./images/HOME_EIF2DbyGRACEMethod.PNG" alt="EIF2D coexpressing genes by GRACE method"></div>
+		<div class="home-image-container card"><img class="home-image" src="images/HOME_EIF2DbyGRACEMethod.PNG" alt="EIF2D coexpressing genes by GRACE method"></div>
 		<h3 class="home-title"><b>Genomic Regression Analysis of Coordinated Expression in Cancer</b></h3>
 		<p>Using GRACE, the bias from SCNA is largely reduced. 
 		Using EIF2D again as an example, the top 10 coexpressing genes called by GRACE come from various chromosomes. 
@@ -100,7 +100,7 @@
 	<!-- End of the  home content -->
 	<div class="push"></div>
 </div>
-<?php include_once './footer.php';?>
+<?php include_once 'footer.php';?>
 
 <script>
 /* This script activates the home icon in the top menu */
