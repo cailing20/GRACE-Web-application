@@ -8,12 +8,18 @@ if(preg_match("/^[a-zA-Z0-9-_]*$/", $g)){
 	
 	try {
 		$sql = "SELECT COUNT(*) FROM `ca_all_cohorts` WHERE `gene_id` =
-				(SELECT `id` FROM `gene_symbols` WHERE symbol = '".$g."')";
-		$stmt = $db->query($sql);
+				(SELECT `id` FROM `gene_symbols` WHERE `symbol` = :symbol)";
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array('symbol' => $g));
+		
 		if($stmt->fetch(PDO::FETCH_COLUMN)==0){
-			$sql = "SELECT `cohort_id` FROM ca_partial_cohorts WHERE `gene_id` = 
+/* 			$sql = "SELECT `cohort_id` FROM ca_partial_cohorts WHERE `gene_id` = 
 					(SELECT `id` FROM gene_symbols WHERE `symbol` = '".$g."')";
-			$stmt = $db->query($sql);
+			$stmt = $db->query($sql); */
+			$sql = "SELECT `cohort_id` FROM ca_partial_cohorts WHERE `gene_id` =
+					(SELECT `id` FROM gene_symbols WHERE `symbol` = :symbol)";
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array('symbol' => $g));
 			while($enabledPos= $stmt->fetch(PDO::FETCH_ASSOC)){
 				$cohortEnabled[$enabledPos['cohort_id']-1] = 1;
 			}

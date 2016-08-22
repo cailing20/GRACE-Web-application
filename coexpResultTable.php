@@ -40,6 +40,7 @@ try {
 	$sql.= ") ORDER BY FIELD(id, ".implode(',', $ids).")";
 	$stmt = $db->query($sql);
 	$coexp_symbols = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	
 	$sql = "SELECT `locus`,`description`,`entrez_id` FROM gene_info WHERE `gene_id` IN (".implode(',', $ids);
 	$sql.= ") ORDER BY FIELD(gene_id, ".implode(',', $ids).")";	$stmt = $db->query($sql);
 	while($info = $stmt->fetch(PDO::FETCH_ASSOC)){

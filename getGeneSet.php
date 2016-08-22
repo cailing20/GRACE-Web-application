@@ -7,6 +7,11 @@ if(preg_match("/^[a-zA-Z0-9-_]*$/", $q)){
 
 	try {
 		/* The following prepares the symbols for genes from the gene set */
+		$sql = "SELECT `id` FROM kegg_names WHERE pathway = :pathway";
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array('pathway'=>$q));
+		$pathwayID=$stmt->fetchColumn();
+		
 		$sql = "SELECT
 		  `symbol`
 		FROM
@@ -18,7 +23,7 @@ if(preg_match("/^[a-zA-Z0-9-_]*$/", $q)){
 		  FROM
 		    kegg_sets
 		  WHERE
-		    `pathway_id` =(SELECT id FROM kegg_names WHERE pathway = '".$q."'))";
+		    `pathway_id` = ".$pathwayID.")";
 		$result = $db->query($sql);
 		$set_symbols = $result->fetchAll(PDO::FETCH_ASSOC);
 		
@@ -34,7 +39,7 @@ if(preg_match("/^[a-zA-Z0-9-_]*$/", $q)){
 		  FROM
 		    kegg_sets
 		  WHERE
-		    `pathway_id` =(SELECT id FROM kegg_names WHERE pathway = '".$q."'))";
+		    `pathway_id` = ".$pathwayID.")";
 		$result = $db->query($sql);
 		$set_description = $result->fetchAll(PDO::FETCH_ASSOC);;
 	}catch(PDOException $e) {
@@ -46,6 +51,7 @@ if(preg_match("/^[a-zA-Z0-9-_]*$/", $q)){
 		echo '<a href="#" class="subset" title="'.$set_description[$i]["description"].'">'.$set_symbols[$i]["symbol"].'</a>';
 	}
 	
+	unset($pathwayID);
 	unset($sql);
 	unset($result);
 	unset($set_symbols);

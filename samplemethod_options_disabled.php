@@ -11,8 +11,9 @@ if(preg_match("/^[A-Z0-9-]*$/", $g)){
 	try {
 		/* The following prepares the description for genes from the gene set */
 		$sql = "SELECT `option_id`,`n_samples` FROM ca_option_availability WHERE `cohort_id`=
-				(SELECT id FROM cohorts WHERE cohort = '".$c."')" ;
-		$stmt = $db->query($sql);
+				(SELECT id FROM cohorts WHERE cohort = :cohortNumber)" ;
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array('cohortNumber'=>$c));
 		while($enabledPos = $stmt->fetch(PDO::FETCH_ASSOC)){
 			$samplemethodEnabled[$enabledPos['option_id']-1] = 1;
 			$sampleNumber[$enabledPos['option_id']-1] = $enabledPos['n_samples'];
@@ -22,9 +23,10 @@ if(preg_match("/^[A-Z0-9-]*$/", $g)){
 		 * for the gene.*/
 		if($stmt->rowCount()!=1){
 			$sql = "SELECT `option_id` FROM partial_option_by_cohorts 
-					WHERE `gene_id`=(SELECT `id` FROM gene_symbols WHERE `symbol`= '".$g."')
-					AND `cohort_id` = (SELECT `id` FROM cohorts WHERE `cohort` = '".$c."')";
-			$stmt = $db->query($sql);
+					WHERE `gene_id`=(SELECT `id` FROM gene_symbols WHERE `symbol`= :symbol)
+					AND `cohort_id` = (SELECT `id` FROM cohorts WHERE `cohort` = :cohortNumber)";
+			$stmt = $db->prepare($sql);
+			$stmt->execute(array('symbol'=>$g,'cohortNumber'=>$c));
 			/* If there is record in the partial_option_by_cohort table, the enabled array needs to be 
 			 * reconstructed based on the result from this table */
 			if($stmt->rowCount()!=0){
