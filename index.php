@@ -23,7 +23,6 @@
 
 <script src="./js/classList.min.js"></script>
 
-=======
 <link rel="stylesheet" href="css/font-awesome.min.css">
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="css/grace.css">
