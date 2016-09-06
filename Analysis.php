@@ -8,29 +8,29 @@
 <meta name="Keywords" content="Regression, Copy Number, RNA, gene expression, correlation, co-expression"/>
 <meta name="Description" content="Bioinformatic tool to retrieve correlated genes from tumor and normal tissue data based on a novel genomic regression method."/>
 
-<link rel="stylesheet" href="./css/font-awesome.min.css">
-<link rel="stylesheet" href="./css/w3.css">
-<link rel="stylesheet" href="./css/grace.css">
-<link rel="stylesheet" href="./css/TypeaheadDrilldown.css">
-<link href="./css/multi_step_form.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/grace.css">
+<link rel="stylesheet" href="css/TypeaheadDrilldown.css">
+<link href="css/multi_step_form.css" rel="stylesheet" type="text/css">
 
-<script src="./js/jquery-2.2.1.min.js"></script>
+<script src="js/jquery-2.2.1.min.js"></script>
 <!-- For highcharts -->
-<script src="./js/highcharts.js"></script>
-<script src="./js/highcharts_exporting.js"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/highcharts_exporting.js"></script>
 <!-- For the search box-->
-<script src="./js/typeahead.bundle.js"></script>
+<script src="js/typeahead.bundle.js"></script>
 <!-- For dropdown -->
-<script src="./js/bootstrap.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <!-- For step by step forms -->
-<script src="./js/multi_step_form.js"></script>
+<script src="js/multi_step_form.js"></script>
 <!-- classList problem for IE -->
-<script src="./js/classList.min.js"></script>
+<script src="js/classList.min.js"></script>
 </head>
 
 <body class="analysis-body">
 <div class="wrapper-main">
-	<?php include_once './header.php';?>
+	<?php include_once 'header.php';?>
 	
 	<div class='container'>
 		<div id="MSFprogressbar">
@@ -77,7 +77,7 @@
 				<div id="pickPathwayContainer" class="contentContainer">
 					<div id="wrapper">
 						<div id="pathwaySuggest" class="content">
-						<?php include_once'./getKeggPathways.php'?>
+						<?php include_once'getKeggPathways.php'?>
 						</div>
 						
 						<div id="geneSet" class="content">
@@ -109,7 +109,7 @@
 			<fieldset id="third" class="MSF card">
 				<legend>Step 3: Pick a TCGA cohort</legend>
 				<select id='TCGA-Cohort'>                    
-				<?php include_once'./cohort_options.php';?>
+				<?php include_once'cohort_options.php';?>
 				</select>
 				<input class="pre_btn" type="button" value="Previous" onclick="clearAnalysis()">
 				<input class="next_btn CA-only" name="next" type="button" value="Next" onclick="sendCohort();setSampleMethodOptions();">
@@ -183,7 +183,7 @@
 	</div>
 	<div class="push"></div>
 </div>
-<?php include_once './footer.php';?>
+<?php include_once 'footer.php';?>
 <script>
 //activate analysis in top navigation menu
 activatePage('top-nav-analysis')
@@ -227,7 +227,7 @@ jQuery.extend({
     }
 });
 //This script is for searching gene symbols, it is adpated from twitter typeahead basics
-var geneSymbols = <?php include_once'./getAllSymbols.php'; ?>;
+var geneSymbols = <?php include_once'getAllSymbols.php'; ?>;
 var substringMatcher = function(strs) {
 		return function findMatches(q, cb) {
 	    var matches, substringRegex;
@@ -343,7 +343,7 @@ $( "#pathwaySuggest" ).on( "click", function(event) {
 	               document.getElementById("geneSet").innerHTML = xmlhttp.responseText;
 	           }
 	       };
-	       xmlhttp.open("GET","./getGeneSet.php?q="+pickedPathway,true);
+	       xmlhttp.open("GET","getGeneSet.php?q="+pickedPathway,true);
 	       xmlhttp.send();
     }
 
@@ -418,7 +418,7 @@ function checkGene(){
 			$("#firstStep").html('<i class="fa fa-pencil-square-o stepReset" onclick=reset()></i> Enter a Gene Symbol');
 			}
 		};
-		arrXhr[0].open("GET","./getGeneInfo.php?q="+grace.gene,true);
+		arrXhr[0].open("GET","getGeneInfo.php?q="+grace.gene,true);
 	 	arrXhr[0].send();
 
 		//this XHR checks the analysis availability for the gene entered by the user and disable options if needed
@@ -440,7 +440,7 @@ function checkGene(){
 			}
 		}
 		};
-		arrXhr[1].open("GET","./analysis_options.php?q="+grace.gene,true);
+		arrXhr[1].open("GET","analysis_options.php?q="+grace.gene,true);
 	 	arrXhr[1].send();
 
 	}else{
@@ -452,7 +452,7 @@ function checkGene(){
 			document.getElementById('geneValidation').innerHTML = xmlhttp.responseText;
 			}
 		};
-		xmlhttp.open("GET","./map2availableAliases.php?q="+grace.gene,true);
+		xmlhttp.open("GET","map2availableAliases.php?q="+grace.gene,true);
 	 	xmlhttp.send();
 	 	document.getElementById('search-gene').value='';
 	}
@@ -530,7 +530,7 @@ function setCohortOptions(){
 			setOptions(cohortOptions);
 		}
 	};
-		xmlhttp.open("GET","./cohort_options_disabled.php?g="+grace.gene, true);
+		xmlhttp.open("GET","cohort_options_disabled.php?g="+grace.gene, true);
 	 	xmlhttp.send();
 	}else{
 		$(".CA-only").hide();
@@ -565,7 +565,7 @@ function setSampleMethodOptions(){
 		setOptions(sampleMethodOptionsData['samplemethodEnabled'],sampleMethodOptionsData['sampleNumber'],sampleMethodOptionsData['sampleMethodOptions']);
 		}
 	};
-	xmlhttp.open("GET","./samplemethod_options_disabled.php?g="+grace.gene+"&c="+grace.cohort, true);
+	xmlhttp.open("GET","samplemethod_options_disabled.php?g="+grace.gene+"&c="+grace.cohort, true);
  	xmlhttp.send();
 }
 //The following lines are to display Reset button on submit and hiding reset button on reset
@@ -693,11 +693,15 @@ function generateScatterPlot(){
 	var commonData = [];
 	var RNAindex;
 	var urlRNA, urlCN;
-	var data = $.getValues("./getRNACNsymbol.php?q="+grace.id);
+	var data = $.getValues("getRNACNsymbol.php?q="+grace.id);
 	urlRNA = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=json&gene="+data['RNA']+"&cohort="+grace.cohort+"&sample_type=TP&protocol=RSEM&page_size=2000&sort_by=tcga_participant_barcode";
 	urlCN = "http://firebrowse.org/api/v1/Analyses/CopyNumber/Genes/All?format=json&cohort="+grace.cohort+"&gene="+data['CN']+"&page_size=2000&sort_by=tcga_participant_barcode";
 
+<<<<<<< HEAD
 	$scatterPlotContainer.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="width:50px;height:50px;margin:100px;">');
+=======
+	$scatterPlotContainer.html('<img id="loading" src="images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin:100px;">');
+>>>>>>> Ling
 	$scatterPlotContainer.show();
 	$.when(
 		$.ajax({
@@ -824,7 +828,11 @@ function generateScatterPlot(){
 // For coexpression analysis table 
 function generateCoexpressionAnalysisResult(){
 	var $coexp = $('#CoexpressionAnalysisResult');
+<<<<<<< HEAD
 	$coexp.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="width:50px;height:50px;margin-left:auto;margin-right:auto;margin-top:150px;display:block;">');
+=======
+	$coexp.html('<img id="loading" src="images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin-left:auto;margin-right:auto;margin-top:150px;display:block;">');
+>>>>>>> Ling
 	xmlhttp = new XMLHttpRequest();
  	xmlhttp.onreadystatechange = function() {
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -874,7 +882,7 @@ function generateCoexpressionAnalysisResult(){
 	    }	
 	}
 };
-	xmlhttp.open("GET","./coexpResultTable.php?id="+grace.id+"&cohort="+grace.cohort+"&method="+grace.sampleMethodId+"&length="+grace.length+"&order="+grace.order+"&setID="+grace.setID+"&setDB="+grace.setDB, true);
+	xmlhttp.open("GET","coexpResultTable.php?id="+grace.id+"&cohort="+grace.cohort+"&method="+grace.sampleMethodId+"&length="+grace.length+"&order="+grace.order+"&setID="+grace.setID+"&setDB="+grace.setDB, true);
  	xmlhttp.send();   
 }
 //This function refresh the result of coexpression table
@@ -889,7 +897,11 @@ function refreshCoexpressionAnalysisResult(){
 //The following enrichment analysis is based on hypergeometric test
 function enrichmentAnalysis(){
 	var $output = $('#EnrichmentOutput');
+<<<<<<< HEAD
 	$output.html('<img id="loading" src="./images/ajax-loader.gif" alt="Loading" style="display:block;margin:auto;padding-top:50px;width:50px;">');
+=======
+	$output.html('<img id="loading" src="images/ajax-loader.GIF" alt="Loading" style="display:block;margin:auto;padding-top:50px;width:50px;">');
+>>>>>>> Ling
 	grace.length = $('#followUpForm').find('input[name="quantity"]').val();
 	grace.order = $('input[name=corTrend]:checked', '#followUpForm').val();
 	grace.setDB = $('#setDB').val();
@@ -1012,7 +1024,7 @@ function enrichmentAnalysis(){
 		prepareSetSelection();
 		}
 	}
-	xmlhttp.open("GET","./getEnrichment.php?method="+grace.sampleMethodId+"&cohort="+grace.cohort+"&id="+grace.id+"&length="+grace.length+"&order="+grace.order+"&setDB="+grace.setDB,true);
+	xmlhttp.open("GET","getEnrichment.php?method="+grace.sampleMethodId+"&cohort="+grace.cohort+"&id="+grace.id+"&length="+grace.length+"&order="+grace.order+"&setDB="+grace.setDB,true);
  	xmlhttp.send();
 }
 
@@ -1037,10 +1049,10 @@ function prepareSetSelection(){
 
 function download(){
 	$.ajax({
-	    url: './downloadFullCoexpResult.php',
+	    url: 'downloadFullCoexpResult.php',
 	    type: 'POST',
 	    success: function() {
-	        window.location = "./downloadFullCoexpResult.php?gene="+grace.gene+"&id="+grace.id+"&method="+grace.sampleMethodId+"&cohort="+grace.cohort;
+	        window.location = "downloadFullCoexpResult.php?gene="+grace.gene+"&id="+grace.id+"&method="+grace.sampleMethodId+"&cohort="+grace.cohort;
 	    }
 	});
 }

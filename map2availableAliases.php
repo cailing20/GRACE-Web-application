@@ -1,20 +1,22 @@
 <?php
-require_once('./connection.php');
+require_once('connection.php');
 $db = Db::getInstance();
 $q = trim(stripslashes(htmlspecialchars($_GET['q'])));
 if(empty($q)){
 	echo "Gene Symbol is required!";
 } else{
 	$q = trim(stripslashes(htmlspecialchars($q)));
+	
+	if(preg_match("/^[a-zA-Z0-9-_]*$/", $q)){
 	try {
-		/* The following prepares the description for genes from the gene set */
-		$sql = "SELECT `gene_id` FROM available_aliases WHERE `alias`='".$q."'";
-		$stmt = $db->query($sql);
+		$sql = "SELECT `gene_id` FROM available_aliases WHERE `alias`= :alias";
+		$stmt = $db->prepare($sql);
+		$stmt->execute(array('alias'=>$q));
 		if($stmt->rowCount()==0){
 			try {
-				/* The following prepares the description for genes from the gene set */
-				$sql = "SELECT count(*) FROM unavailable_genes_aliases WHERE `symbol`='".$q."'";
-				$stmt = $db->query($sql);
+				$sql = "SELECT count(*) FROM unavailable_genes_aliases WHERE `symbol`= :symbol";
+				$stmt = $db->prepare($sql);
+				$stmt->execute(array('symbol'=>$q));
 				if($stmt->fetch(PDO::FETCH_COLUMN)>0){
 					echo "No analysis is available for gene entered.";
 				}else{
@@ -31,7 +33,6 @@ if(empty($q)){
 			}
 			if(count($alias)==1){
 				try {
-					/* The following prepares the description for genes from the gene set */
 					$sql = "SELECT s.symbol, i.locus, i.description
 				FROM gene_symbols AS s, gene_info AS i
 				WHERE s.id=".$alias[0]." AND i.gene_id=".$alias[0];
@@ -67,13 +68,21 @@ if(empty($q)){
 				}
 			}
 		}
+		unset($sql);
+		unset($result);
 	
 	}catch(PDOException $e) {
 		echo $e->getMessage();
 	}
+	} else {
+	
+		echo "Invalid Gene Name.";
+	
+	}
+	
+	
 }
-unset($sql);
-unset($result);
+
 
 $db = null;
 

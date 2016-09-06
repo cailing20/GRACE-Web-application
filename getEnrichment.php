@@ -34,6 +34,7 @@ if($order=='asc'){
 $setDBs=["kegg","GeneFamily","REACTOME","PID","GO_BIOLOGICAL_PROCESS_2015","GO_CELLULAR_COMPONENT_2015","GO_MOLECULAR_FUNCTION_2015",
 		"HUMAN_PHENOTYPE_ONTOLOGY","MGI_MAMMALIAN_PHENOTYPE_2013","OMIM_DISEASE","OMIM_EXPANDED","CHEA_2015",
 		"HMDB_METABOLITES"];
+<<<<<<< HEAD
 $fileName = "./json/".$setDBs[$setDB].".json";
 $fileName = realpath($fileName);
 if ( $_JSONpath == substr($fileName, 0 , 19)) {
@@ -41,6 +42,10 @@ if ( $_JSONpath == substr($fileName, 0 , 19)) {
 } else {
   header("Location:index.php");
 }
+=======
+$fileName = "json/".$setDBs[$setDB].".json";
+$json = file_get_contents($fileName);
+>>>>>>> Ling
 $geneSets = json_decode($json,true);
 
 
