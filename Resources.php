@@ -90,7 +90,7 @@ $(window).on('load resize', function(){
 				</p>
 				
 				<a href="http://discover.nci.nih.gov/cellminer/home.do" target="_blank">
-					<img src="images/Resources/CellMiner.GIF" alt="CellMiner">
+					<img src="images/Resources/CellMiner.gif" alt="CellMiner">
 				</a>
 				<p>
 					CellMiner™ is a web application that facilitates systems biology through the retrieval and integration of the molecular and pharmacological data sets for the NCI-60 cell lines. The NCI-60 is a panel of 60 diverse human cancer cell lines used by the Developmental Therapeutics Program of the U.S. National Cancer Institute to screen over 100,000 chemical compounds and natural products (since 1990).
