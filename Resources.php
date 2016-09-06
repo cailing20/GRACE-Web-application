@@ -80,7 +80,7 @@ $(window).on('load resize', function(){
 				</p>
 				
 				<a href="http://www.broadinstitute.org/ccle/home" target="_blank">
-					<img src="images/Resources/CCLE.JPG" alt="CCLE">
+					<img src="images/Resources/CCLE.jpg" alt="CCLE">
 				</a>
 				<p>
 					The Cancer Cell Line Encyclopedia (CCLE) project is an effort to conduct a detailed genetic characterization of a large panel of human cancer cell lines. The CCLE provides public access analysis and visualization of DNA copy number, mRNA expression, mutation data and more, for 1000 cancer cell lines.
@@ -165,7 +165,7 @@ $(window).on('load resize', function(){
 				</p>
 				
 				<a href="http://biogps.org/#goto=welcome" target="_blank">
-					<img src="images/Resources/BioGPS.JPG" alt="BioGPS_logo">
+					<img src="images/Resources/BioGPS.jpg" alt="BioGPS_logo">
 				</a>
 				<p>
 				BioGPS is an extensible and customizable portal for querying and organizing gene annotation resources. In particular, its default gene annotation report provides a survey of gene expression patterns from a diverse set of tissues and cell types.
@@ -182,7 +182,7 @@ $(window).on('load resize', function(){
 		<div class="ACcontainer">
 		    <div class="ACcontent">
 				<a href="http://amp.pharm.mssm.edu/Enrichr/" target="_blank">
-					<img src="images/Resources/Enrichr.JPG" alt="Enrichr_logo">
+					<img src="images/Resources/Enrichr.jpg" alt="Enrichr_logo">
 				</a>
 				<p>
 					Enrichr is an easy-to-use intuitive enrichment analysis web-based tool providing various types of visualization summaries of collective functions of gene lists. Enrichr provides access to 35 gene-set libraries with many useful libraries such as those created from ENCODE enlisting many targets for many transcription factors as well as a gene-set library extracted from the NIH Roadmap Epigenomics Project for histone modifications.
@@ -192,7 +192,7 @@ $(window).on('load resize', function(){
 				</p>
 	
 				<a href="https://david.ncifcrf.gov/" target="_blank">
-					<img src="images/Resources/David.JPG" alt="DAVID_logo">
+					<img src="images/Resources/David.jpg" alt="DAVID_logo">
 				</a>
 				<p>
 					The Database for Annotation, Visualization and Integrated Discovery (DAVID) provides a comprehensive set of functional annotation tools for investigators to understand the biological meaning behind a large list of genes.
@@ -202,7 +202,7 @@ $(window).on('load resize', function(){
 				</p>	  
 				
 				<a href="http://cbl-gorilla.cs.technion.ac.il/" target="_blank">
-					<img src="images/Resources/Gorilla.JPG" alt="GOrilla_logo">
+					<img src="images/Resources/Gorilla.jpg" alt="GOrilla_logo">
 				</a>
 				<p>
 					GOrilla (Gene Ontology enRIchment anaLysis and visuaLizAtion tool) is a tool for discovery and visualization of enriched GO terms in ranked gene lists
