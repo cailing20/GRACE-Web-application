@@ -60,7 +60,7 @@ $(window).on('load resize', function(){
 		<div class="ACcontainer">
 		    <div class="ACcontent">
 		    	<a href="http://firebrowse.org/" target="_blank">
-					<img src="images/Resources/FireBrowse.PNG" alt="FIREBROWSE">
+					<img src="images/Resources/FireBrowse.png" alt="FIREBROWSE">
 				</a>
 				<p>
 					FireBrowse is a simple and elegant way to explore cancer data, backed by a powerful computational infrastructure, application programming interface (API), graphical tools and online reports.  It sits above the TCGA GDAC Firehose, one of the deepest and most integratively characterized open cancer datasets in the world--with over 80K sample aliquots from 11,000+ cancer patients, spanning 38 unique disease cohorts. 
@@ -70,7 +70,7 @@ $(window).on('load resize', function(){
 				</p>
 				
 				<a href="http://www.broadinstitute.org/tumorscape/pages/portalHome.jsf" target="_blank">
-					<img src="images/Resources/Tumorscape.PNG" alt="TumorScape">
+					<img src="images/Resources/Tumorscape.png" alt="TumorScape">
 				</a>
 				<p>
 					TumorScape is designed to facilitate the use and understanding of high-resolution copy number data amassed from multiple cancer types. The functionalities, including gene-level analysis, analysis by cancer type, download and visualization of cancer DNA copy number data, are supported.
@@ -108,7 +108,7 @@ $(window).on('load resize', function(){
 		<div class="ACcontainer">
 		    <div class="ACcontent">
 		        <a href="http://www.cbioportal.org/" target="_blank">
-					<img src="images/Resources/cbioportal_logo.PNG" alt="cBioPortal_logo">
+					<img src="images/Resources/cbioportal_logo.png" alt="cBioPortal_logo">
 				</a>
 				<p>
 					The cBioPortal for Cancer Genomics provides visualization, analysis and download of large-scale cancer genomics data sets.
@@ -118,7 +118,7 @@ $(window).on('load resize', function(){
 				</p>
 				
 		        <a href="https://www.oncomine.org/resource/login.html" target="_blank">
-					<img src="images/Resources/Oncomine.PNG" alt="Oncomine_logo">
+					<img src="images/Resources/Oncomine.png" alt="Oncomine_logo">
 				</a>
 				<p>
 					Oncomine combines a rapidly growing compendium of 20,000+ cancer transcriptome profiles with a sophisticated analysis engine and a powerful web application for data-mining and visualization.
@@ -128,7 +128,7 @@ $(window).on('load resize', function(){
 				</p>
 				
 				<a href="https://genome-cancer.ucsc.edu/proj/site/hgHeatmap/" target="_blank">
-					<img src="images/Resources/UCSCCancerBrowser.PNG" alt="UCSC Cancer Browser_logo">
+					<img src="images/Resources/UCSCCancerBrowser.png" alt="UCSC Cancer Browser_logo">
 				</a>
 				<p>
 					The UCSC Cancer Browser allows researchers to interactively explore cancer genomics data and its associated clinical information. Data can be viewed in a variety of ways, including by value, chromosome location, clinical feature, biological pathway or geneset of interest. It is also possible to quickly perform and easily view statistical analyses on subsets of the data.
@@ -145,7 +145,7 @@ $(window).on('load resize', function(){
 		<div class="ACcontainer">
 		    <div class="ACcontent">
 		        <a href="http://giant.princeton.edu/" target="_blank">
-					<img src="images/Resources/Giant.PNG" alt="GIANT_logo" style="height:197px !important;height:142.5px !important;">
+					<img src="images/Resources/Giant.png" alt="GIANT_logo" style="height:197px !important;height:142.5px !important;">
 				</a>
 				<p>
 					Genome-scale Integrated Analysis of gene Networks in Tissues (GIANT) provides an interface to human tissue networks through multi-gene queries, network visualization, analysis tools (including NetWAS) and downloadable networks. GIANT enables systematic exploration of the landscape of interacting genes that shape specialized cellular functions across more than a hundred human tissues and cell types.
@@ -155,7 +155,7 @@ $(window).on('load resize', function(){
 				</p>
 				
 				<a href="https://www.ebi.ac.uk/gxa/home" target="_blank">
-					<img src="images/Resources/ExpressionAtlas.PNG" alt="Expression Atlas_logo" style="height:197px !important;height:142.5px !important;">
+					<img src="images/Resources/ExpressionAtlas.png" alt="Expression Atlas_logo" style="height:197px !important;height:142.5px !important;">
 				</a>
 				<p>
 					The Expression Atlas provides information on gene expression patterns under different biological conditions. Gene expression data is re-analyzed in-house to detect genes showing interesting baseline and differential expression patterns.
