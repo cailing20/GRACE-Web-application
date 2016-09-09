@@ -1,12 +1,8 @@
 <?php
 require_once('connection.php');
 $db = Db::getInstance();
-<<<<<<< HEAD
 $g = trim(stripslashes(htmlspecialchars($_GET['g'])));
-$cohortEnabled = array_fill(0, 21, 0);
-$g = $_GET['g'];
 if(preg_match("/^[a-zA-Z0-9-_]*$/", $g)){
->>>>>>> Ling
 
 	$cohortEnabled = array_fill(0, 21, 0);
 	
