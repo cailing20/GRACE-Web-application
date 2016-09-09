@@ -687,6 +687,97 @@ function reset(){
 //For Scatter Plot Analysis, adapted from Highcharts
 function generateScatterPlot(){
 	var $scatterPlotContainer = $('#scatterPlot');
+	$scatterPlotContainer.html('<img id="loading" src="images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin:100px;">');
+	$scatterPlotContainer.show();
+	xmlhttp = new XMLHttpRequest();
+ 	xmlhttp.onreadystatechange = function() {
+	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		var dat = xmlhttp.responseText;
+		var dat = JSON.parse(dat);
+		console.log(dat['data'][0]);
+		console.log(dat['length']);
+		$(function() {
+				$('#scatterPlot').highcharts({
+			        chart: {
+			            type: 'scatter',
+			            zoomType: 'xy'
+			        },
+			        title: {
+			            text: '<b>'+grace.gene+'</b><br>DNA Copy Number Versus RNA Expression of '+dat['length']+' '+grace.cohort+' tumor samples'
+			        },
+			        subtitle: {
+			            text: 'Source: TCGA'
+			        },
+			        xAxis: {
+			            title: {
+			                enabled: true,
+			                text: 'Relative Copy Number'
+			            },
+			            startOnTick: true,
+			            endOnTick: true,
+			            showLastLabel: true
+			        },
+			        yAxis: {
+			            title: {
+			                text: 'RNA-seq V2 RSEM gene normalized'
+			            },
+			            labels: {
+				            formatter: function() {
+				                return this.value.toExponential(0); // 2 digits of precision
+				            }
+			            }
+			        },
+			        legend: {
+				        enabled: false
+			            /* layout: 'vertical',
+			            verticalAlign: 'top',
+			            align: 'right',
+			            floating: true,
+			            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+			            borderWidth: 1,
+		            	y:50 */
+			        },
+			        credits: {
+			            enabled: false
+			        },
+			        exporting: { 
+				        enabled: true 
+				    },
+			        plotOptions: {
+			            scatter: {
+			                marker: {
+			                    radius: 5,
+			                    states: {
+			                        hover: {
+			                            enabled: true,
+			                            lineColor: 'rgb(100,100,100)'
+			                        }
+			                    }
+			                },
+			                states: {
+			                    hover: {
+			                        marker: {
+			                            enabled: false
+			                        }
+			                    }
+			                },
+			                tooltip: {
+			                    headerFormat: '<b>{series.name}</b><br>',
+			                    pointFormat: '{point.x}, {point.y}'
+			                }
+			            }
+			        },
+			        series: dat['data']
+			    }).fadeIn('slow');
+		});
+ 	};
+ 	}
+	xmlhttp.open("GET","scatterplotData.php?id="+grace.id+"&cohort="+grace.cohort, true);
+ 	xmlhttp.send(); 
+}
+
+function generateScatterPlot2(){
+	var $scatterPlotContainer = $('#scatterPlot');
 	var RNA, CN;
 	var RNAsamples = [];
 	var COMMONsamples = [];
