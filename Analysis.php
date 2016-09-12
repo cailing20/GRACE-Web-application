@@ -694,8 +694,6 @@ function generateScatterPlot(){
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 		var dat = xmlhttp.responseText;
 		var dat = JSON.parse(dat);
-		console.log(dat['data'][0]);
-		console.log(dat['length']);
 		$(function() {
 				$('#scatterPlot').highcharts({
 			        chart: {
