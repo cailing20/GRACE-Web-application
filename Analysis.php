@@ -687,6 +687,95 @@ function reset(){
 //For Scatter Plot Analysis, adapted from Highcharts
 function generateScatterPlot(){
 	var $scatterPlotContainer = $('#scatterPlot');
+	$scatterPlotContainer.html('<img id="loading" src="images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin:100px;">');
+	$scatterPlotContainer.show();
+	xmlhttp = new XMLHttpRequest();
+ 	xmlhttp.onreadystatechange = function() {
+	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+		var dat = xmlhttp.responseText;
+		var dat = JSON.parse(dat);
+		$(function() {
+				$('#scatterPlot').highcharts({
+			        chart: {
+			            type: 'scatter',
+			            zoomType: 'xy'
+			        },
+			        title: {
+			            text: '<b>'+grace.gene+'</b><br>DNA Copy Number Versus RNA Expression of '+dat['length']+' '+grace.cohort+' tumor samples'
+			        },
+			        subtitle: {
+			            text: 'Source: TCGA'
+			        },
+			        xAxis: {
+			            title: {
+			                enabled: true,
+			                text: 'Relative Copy Number'
+			            },
+			            startOnTick: true,
+			            endOnTick: true,
+			            showLastLabel: true
+			        },
+			        yAxis: {
+			            title: {
+			                text: 'RNA-seq V2 RSEM gene normalized'
+			            },
+			            labels: {
+				            formatter: function() {
+				                return this.value.toExponential(0); // 2 digits of precision
+				            }
+			            }
+			        },
+			        legend: {
+				        enabled: false
+			            /* layout: 'vertical',
+			            verticalAlign: 'top',
+			            align: 'right',
+			            floating: true,
+			            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+			            borderWidth: 1,
+		            	y:50 */
+			        },
+			        credits: {
+			            enabled: false
+			        },
+			        exporting: { 
+				        enabled: true 
+				    },
+			        plotOptions: {
+			            scatter: {
+			                marker: {
+			                    radius: 5,
+			                    states: {
+			                        hover: {
+			                            enabled: true,
+			                            lineColor: 'rgb(100,100,100)'
+			                        }
+			                    }
+			                },
+			                states: {
+			                    hover: {
+			                        marker: {
+			                            enabled: false
+			                        }
+			                    }
+			                },
+			                tooltip: {
+			                    headerFormat: '<b>{series.name}</b><br>',
+			                    pointFormat: '{point.x}, {point.y}'
+			                }
+			            }
+			        },
+			        series: dat['data']
+			    }).fadeIn('slow');
+		});
+ 	};
+ 	}
+	xmlhttp.open("GET","scatterplotData.php?id="+grace.id+"&cohort="+grace.cohort, true);
+ 	xmlhttp.send(); 
+}
+
+function generateScatterPlot2(){
+	var $scatterPlotContainer = $('#scatterPlot');
 	var RNA, CN;
 	var RNAsamples = [];
 	var COMMONsamples = [];
@@ -697,7 +786,7 @@ function generateScatterPlot(){
 	urlRNA = "http://firebrowse.org/api/v1/Samples/mRNASeq?format=json&gene="+data['RNA']+"&cohort="+grace.cohort+"&sample_type=TP&protocol=RSEM&page_size=2000&sort_by=tcga_participant_barcode";
 	urlCN = "http://firebrowse.org/api/v1/Analyses/CopyNumber/Genes/All?format=json&cohort="+grace.cohort+"&gene="+data['CN']+"&page_size=2000&sort_by=tcga_participant_barcode";
 
-	$scatterPlotContainer.html('<img id="loading" src="images/ajax-loader.gif" alt="Loading" style="width:50px;height:50px;margin:100px;">');
+	$scatterPlotContainer.html('<img id="loading" src="images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin:100px;">');
 	$scatterPlotContainer.show();
 	$.when(
 		$.ajax({
@@ -824,7 +913,7 @@ function generateScatterPlot(){
 // For coexpression analysis table 
 function generateCoexpressionAnalysisResult(){
 	var $coexp = $('#CoexpressionAnalysisResult');
-	$coexp.html('<img id="loading" src="images/ajax-loader.gif" alt="Loading" style="width:50px;height:50px;margin-left:auto;margin-right:auto;margin-top:150px;display:block;">');
+	$coexp.html('<img id="loading" src="images/ajax-loader.GIF" alt="Loading" style="width:50px;height:50px;margin-left:auto;margin-right:auto;margin-top:150px;display:block;">');
 	xmlhttp = new XMLHttpRequest();
  	xmlhttp.onreadystatechange = function() {
 	if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
@@ -889,7 +978,7 @@ function refreshCoexpressionAnalysisResult(){
 //The following enrichment analysis is based on hypergeometric test
 function enrichmentAnalysis(){
 	var $output = $('#EnrichmentOutput');
-	$output.html('<img id="loading" src="images/ajax-loader.gif" alt="Loading" style="display:block;margin:auto;padding-top:50px;width:50px;">');
+	$output.html('<img id="loading" src="images/ajax-loader.GIF" alt="Loading" style="display:block;margin:auto;padding-top:50px;width:50px;">');
 	grace.length = $('#followUpForm').find('input[name="quantity"]').val();
 	grace.order = $('input[name=corTrend]:checked', '#followUpForm').val();
 	grace.setDB = $('#setDB').val();

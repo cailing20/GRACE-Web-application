@@ -1,10 +1,10 @@
 <?php 
-/* $method = '1';
-$cohort = 'BRCA';
-$id = '8475';
-$length = '100';
-$order = 'asc';
-$setDB = '0'; */
+#$method = '1';
+#$cohort = 'BRCA';
+#$id = '8475';
+#$length = '100';
+#$order = 'asc';
+#$setDB = '0'; 
 $method = trim(stripslashes(htmlspecialchars($_GET['method'])));
 $cohort = trim(stripslashes(htmlspecialchars($_GET['cohort'])));
 $id = trim(stripslashes(htmlspecialchars($_GET['id'])));
@@ -34,16 +34,13 @@ if($order=='asc'){
 $setDBs=["kegg","GeneFamily","REACTOME","PID","GO_BIOLOGICAL_PROCESS_2015","GO_CELLULAR_COMPONENT_2015","GO_MOLECULAR_FUNCTION_2015",
 		"HUMAN_PHENOTYPE_ONTOLOGY","MGI_MAMMALIAN_PHENOTYPE_2013","OMIM_DISEASE","OMIM_EXPANDED","CHEA_2015",
 		"HMDB_METABOLITES"];
-$fileName = "json/".$setDBs[$setDB].".json";
-$fileName = realpath($fileName);
-if ( $_JSONpath == substr($fileName, 0 , 19)) {
+$fileName = "json/" . $setDBs[$setDB] . ".json";
+if ( file_exists(realpath($fileName)) ) {
   $json = file_get_contents($fileName);
+  $geneSets = json_decode($json,true);
 } else {
   header("Location:index.php");
 }
-$geneSets = json_decode($json,true);
-
-
 
 $data = array();
 $data['topIds'] = $ids;
